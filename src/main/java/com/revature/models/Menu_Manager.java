@@ -20,17 +20,17 @@ public class Menu_Manager {
 		Scanner scan = new Scanner(System.in); //This is a scanner object to parse (take) user input
 	
 		//give the user a nice greeting
-		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println("~~~~~Welcome to the Employee Reinbursement Review System~~~~~");
-		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
 		
 		//display the menu as long as the displayMenu boolean == true
 		//this is going to hold and display all my menu options until displayMenu == flase
 		while(displayMenu) {
 			
-			//menu options
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-			System.out.println("~~~~Hello, which type of reinbursement requests would you like to view?~~~~ ");
+			System.out.println("~~~~~~~~~~  Welcome to the Employee Reinbursement Review System  ~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~  Hello, which type of reinbursement requests would you like to view?  ~~ ");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("1: LODGING");
 			System.out.println("2: TRAVEL");

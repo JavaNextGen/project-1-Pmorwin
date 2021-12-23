@@ -296,32 +296,4 @@ public List<Employee> getEmployees() { //This will use SQL SELECT functionality
 	
 }    
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
