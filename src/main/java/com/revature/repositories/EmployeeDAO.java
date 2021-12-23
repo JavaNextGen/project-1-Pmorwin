@@ -40,10 +40,8 @@ public class EmployeeDAO {
 				//Use the all args constructor to create a new Employee object from each returned row from the database
 				Employee e = new Employee(
 						//We want to use rs.get for each column in the record
-						rs.getInt("empolyee_id"),
 						rs.getString("f_name"),
-						rs.getString("l_name"),
-						rs.getInt("role_id")						
+						rs.getString("l_name")
 						);
 				//and populate the ArrayList with each new Employee Object				
 				employeeList.add(e);//e is the new Employee object we created above
@@ -84,8 +82,6 @@ public class EmployeeDAO {
 			
 			//send confirmation to the console if successful
 			System.out.println("Employee Information Sucessfully Inputted");
-			
-			
 		}
 		catch(SQLException e) {
 			System.out.println("There was an error while attempting to input Employee information");

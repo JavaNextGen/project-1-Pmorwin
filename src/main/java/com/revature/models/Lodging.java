@@ -45,19 +45,19 @@ public class Lodging {
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
-	public String getEmployee_id() {
+	public String getL_name() {
 		return l_name;
 	}
 
-	public void setEmployee_id(String l_name) {
+	public void setL_name(String l_name) {
 		this.l_name = l_name;
 	}
 
-	public String getLodging_id() {
+	public String getF_name() {
 		return f_name;
 	}
 
-	public void setLodging_id(String f_name) {
+	public void setF_name(String f_name) {
 		this.f_name = f_name;
 	}
 
@@ -69,11 +69,11 @@ public class Lodging {
 		this.lodging_info = lodging_info;
 	}
 
-	public String getlodging_cost() {
+	public String getLodging_cost() {
 		return lodging_cost;
 	}
 
-	public void setlodging_cost(String lodging_cost) {
+	public void setLodging_cost(String lodging_cost) {
 		this.lodging_cost = lodging_cost;
 	}
 

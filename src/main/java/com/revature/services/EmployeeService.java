@@ -7,7 +7,7 @@ public class EmployeeService {
 
 	EmployeeDAO eDAO = new EmployeeDAO();//So that I can use the method sform the employeeDAO
 
-	public void addEmployee(Employee newEmployee) {
+	public void inputEmployee(Employee newEmployee) {
 		
 		//Take in the employee object sent from the menu and send it to the employee dao to be inserted into the database 
 		

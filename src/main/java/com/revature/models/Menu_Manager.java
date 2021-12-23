@@ -11,9 +11,7 @@ import com.revature.util.ClearConsole;
 import com.revature.repositories.MiscellaneousDAO;
 
 
-
-
-
+@SuppressWarnings("unused")
 public class Menu_Manager {
 
 	EmployeeDAO eDAO = new EmployeeDAO();
@@ -27,10 +25,9 @@ public class Menu_Manager {
 		
 		boolean displayMenu = true;//We are going to use this to toggle whether the menu continues after user input
 		
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in); //This is a scanner object to parse (take) user input
 	
-		ClearConsole cc = new ClearConsole();
-
 		//give the user a nice greeting
 
 		
@@ -38,14 +35,18 @@ public class Menu_Manager {
 		//this is going to hold and display all my menu options until displayMenu == flase
 		while(displayMenu) {
 			
-			ClearConsole.clearConsole();
+			//ClearConsole.clearConsole();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~  Welcome to the Employee Reinbursement Review System  ~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println();
 			System.out.println();
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-			System.out.println("~~  Hello, which type of reinbursement requests would you like to view?  ~~ ");
+			System.out.println("~~  Hello, which type of reinbursement requests would you like to view?  ~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("1: LODGING");
 			System.out.println("2: TRAVEL");
@@ -101,9 +102,9 @@ public class Menu_Manager {
 					break;//we need a break in each case block, or else all the other calls will still run
 				}
 				case 5:{
-					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("Have a wonderful day!"); 
-					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~  Have a wonderful day!  ~~~~~~~~~~~~~~~~~~~~~~~~~"); 
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					displayMenu = false;
 					break;
 				}

@@ -1,5 +1,6 @@
 package com.revature.repositories;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,7 +19,8 @@ public class FoodDAO {
 			ResultSet rs = null;
 			
 			//write the query that we want to send to the database, and assign it to a String
-			String food = "SELECT food_info, food_cost, employees.f_name , employees.l_name FROM food LEFT JOIN employees ON food.reference_id = employees.employee_id; ";
+			String food = "SELECT * FROM food;";
+			//String food = "SELECT food_info, food_cost, employees.f_name , employees.l_name FROM food LEFT JOIN employees ON food.reference_id = employees.employee_id; ";
 			
 			//put the SQL query into a statemnt object (The connection object has a method for this!!)
 			Statement statement = conn.createStatement();
@@ -59,6 +61,33 @@ public class FoodDAO {
 		
 		
 	}   
-	    
+	public void submitFood(Food newFood) {//This is INSERT functinoality
+		
+		try(Connection conn = ConnectionFactory.getConnection()){
+			
+			//well create a SQL statement using parameters to insert a new employee
+			String food = "INSERT INTO food (food_info, food_cost, f_name, l_name) " //creating a line break for readability
+						+ "VALUES (?,?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
+			
+			PreparedStatement ps = conn.prepareStatement(food);//we use PreparedStatements for SQL commands with variables
+			
+			//Use the Preparedstatemnt objects method to insert values into query;s ?s
+			//the valuse will come from the Food object we send in
+			ps.setString(1, newFood.getFood_info());
+			ps.setString(2, newFood.getFood_cost());
+			ps.setString(3, newFood.getF_name());
+			ps.setString(4, newFood.getL_name());
+			//this executeUpdate() method actually sends and executes the SQL command we built in
+			ps.executeUpdate();//we use executeUpdate() for inserts, updates, and deletes
+			//we use executeQuery() for selects
+			
+			//send confirmation to the console if successful
+			System.out.println("Food Information Sucessfully Inputted");
+		}
+		catch(SQLException e) {
+			System.out.println("There was an error while attempting to input Food information");
+			e.printStackTrace();
+		}
+	}    
 	    
 }

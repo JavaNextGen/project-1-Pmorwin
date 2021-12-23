@@ -1,6 +1,7 @@
 package com.revature.repositories;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,7 +21,8 @@ public class LodgingDAO {
 				ResultSet rs = null;
 				
 				//write the query that we want to send to the database, and assign it to a String
-				String lod = "SELECT lodging_info, lodging_cost, employees.f_name , employees.l_name FROM lodging LEFT JOIN employees ON lodging.reference_id = employees.employee_id; ";
+				String lod = "SELECT * FROM lodging;";
+				//String lod = "SELECT lodging_info, lodging_cost, employees.f_name , employees.l_name FROM lodging LEFT JOIN employees ON lodging.reference_id = employees.employee_id; ";
 				
 				
 				//put the SQL query into a statemnt object (The connection object has a method for this!!)
@@ -37,7 +39,7 @@ public class LodgingDAO {
 				
 				//while there are results in the ResultSet
 				while(rs.next()) {
-					//Use the all args constructor to create a new Employee object from each returned row from the database
+					//Use the all args constructor to create a new Lodging object from each returned row from the database
 					Lodging l = new Lodging(
 							//We want to use rs.get for each column in the record
 							rs.getString("lodging_info"),
@@ -45,8 +47,8 @@ public class LodgingDAO {
 							rs.getString("f_name"),
 							rs.getString("l_name")								
 							);
-					//and populate the ArrayList with each new Employee Object				
-					lodgingList.add(l);//e is the new Employee object we created above
+					//and populate the ArrayList with each new Lodging Object				
+					lodgingList.add(l);//e is the new Lodging object we created above
 				}
 				
 				//when there are no more results in rs, the while loop will break
@@ -62,4 +64,41 @@ public class LodgingDAO {
 			
 			
 		}
+
+	public void submitLodging(Lodging newLodging) {//This is INSERT functinoality
+		
+		try(Connection conn = ConnectionFactory.getConnection()){
+			
+			//well create a SQL statement using parameters to insert a new employee
+			String lodging = "INSERT INTO lodging (lodging_info, lodging_cost, f_name, l_name) " //creating a line break for readability
+						+ "VALUES (?,?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
+			
+			PreparedStatement ps = conn.prepareStatement(lodging);//we use PreparedStatements for SQL commands with variables
+			
+			
+			//Use the Preparedstatemnt objects method to insert values into query;s ?s
+			//the valuse will come from the Lodging object we send in
+			ps.setString(1, newLodging.getLodging_info());
+			ps.setString(2, newLodging.getLodging_cost());
+			ps.setString(3, newLodging.getF_name());
+			ps.setString(4, newLodging.getL_name());
+			
+		
+
+			//this executeUpdate() method actually sends and executes the SQL command we built in
+			ps.executeUpdate();//we use executeUpdate() for inserts, updates, and deletes
+			//we use executeQuery() for selects
+			
+			//send confirmation to the console if successful
+			System.out.println("Lodging Information Sucessfully Inputted");	
+		}
+		catch(SQLException e) {
+			System.out.println("There was an error while attempting to input Lodging information");
+			e.printStackTrace();
+		}
+	}
+
+
+
+
 }

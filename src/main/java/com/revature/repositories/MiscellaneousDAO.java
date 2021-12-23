@@ -1,6 +1,7 @@
 package com.revature.repositories;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,7 +21,8 @@ public class MiscellaneousDAO {
 			ResultSet rs = null;
 			
 			//write the query that we want to send to the database, and assign it to a String
-			String misc = "SELECT misc_info, misc_cost, employees.f_name , employees.l_name FROM misc LEFT JOIN employees ON misc.reference_id = employees.employee_id; ";
+			String misc = "SELECT * FROM misc;";
+			//String misc = "SELECT misc_info, misc_cost, employees.f_name , employees.l_name FROM misc LEFT JOIN employees ON misc.reference_id = employees.employee_id; ";
 			
 			//put the SQL query into a statemnt object (The connection object has a method for this!!)
 			Statement statement = conn.createStatement();
@@ -61,4 +63,36 @@ public class MiscellaneousDAO {
 		
 		
 	}   
+
+	public void submitMiscellaneous(Miscellaneous newMiscellaneous) {//This is INSERT functinoality
+		
+		try(Connection conn = ConnectionFactory.getConnection()){
+			
+			//well create a SQL statement using parameters to insert a new employee
+			String misc = "INSERT INTO misc (misc_info,  misc_cost, f_name, l_name) " //creating a line break for readability
+						+ "VALUES (?,?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
+			
+			PreparedStatement ps = conn.prepareStatement(misc);//we use PreparedStatements for SQL commands with variables
+			
+			//Use the Preparedstatemnt objects method to insert values into query;s ?s
+			//the valuse will come from the Miscellaneous object we send in
+			ps.setString(1, newMiscellaneous.getMisc_info());
+			ps.setString(2, newMiscellaneous.getMisc_cost());
+			ps.setString(3, newMiscellaneous.getF_name());
+			ps.setString(4, newMiscellaneous.getL_name());
+			//this executeUpdate() method actually sends and executes the SQL command we built in
+			ps.executeUpdate();//we use executeUpdate() for inserts, updates, and deletes
+			//we use executeQuery() for selects
+			
+			//send confirmation to the console if successful
+			System.out.println("Miscellaneous Information Sucessfully Inputted");		
+		}
+		catch(SQLException e) {
+			System.out.println("There was an error while attempting to input Miscellaneous information");
+			e.printStackTrace();
+		}
+	}
+
+
+
 }

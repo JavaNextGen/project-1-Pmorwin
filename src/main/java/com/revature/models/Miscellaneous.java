@@ -45,19 +45,19 @@ public class Miscellaneous {
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
-	public String getEmployee_id() {
+	public String getL_name() {
 		return l_name;
 	}
 
-	public void setEmployee_id(String l_name) {
+	public void setL_name(String l_name) {
 		this.l_name = l_name;
 	}
 
-	public String getMisc_id() {
+	public String getF_name() {
 		return f_name;
 	}
 
-	public void setMisc_id(String f_name) {
+	public void setF_name(String f_name) {
 		this.f_name = f_name;
 	}
 
