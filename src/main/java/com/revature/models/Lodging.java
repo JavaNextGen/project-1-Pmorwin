@@ -4,11 +4,11 @@ package com.revature.models;
 public class Lodging {
 
 	//fields for the employee class - must match those in your database
-	private int lodging_id;
+	
 	private String lodging_info;
 	private String lodging_cost;
-	private int employee_id;
-	
+	private String f_name;
+	private String l_name;
 	
 	
 	//boilerplate code below------------------------------
@@ -20,19 +20,19 @@ public class Lodging {
 	}
 	
 	//all args constructor
-	public Lodging(int lodging_id, String lodging_info, String lodging_cost, int employee_id) {
+	public Lodging(String f_name, String l_name, String lodging_info, String lodging_cost) {
 		super();
-		this.lodging_id = lodging_id;
+		this.f_name = f_name;
 		this.lodging_info = lodging_info;
 		this.lodging_cost = lodging_cost;
-		this.employee_id = employee_id;
+		this.l_name = l_name;
 	}
 
-	//all args MINUS the employee_id primary key... WHY?
-	//we will eventually want the capability to add employees... and the employee_id auto increments!!!
-	public Lodging(int lodging_id, String lodging_info, String lodging_cost) {
+	//all args MINUS the l_name primary key... WHY?
+	//we will eventually want the capability to add employees... and the l_name auto increments!!!
+	public Lodging(String l_name, String lodging_info, String lodging_cost) {
 		super();
-		this.lodging_id = lodging_id;
+		this.l_name = l_name;
 		this.lodging_info = lodging_info;
 		this.lodging_cost = lodging_cost;
 	}
@@ -40,25 +40,25 @@ public class Lodging {
 	
 	@Override
 	public String toString() {
-		return "Lodging [lodging_id=" + lodging_id + ", lodging_info=" + lodging_info + ", lodging_cost=" + lodging_cost
-				+ ", employee_id=" + employee_id + "]";
+		return "Lodging [f_name=" + f_name + ", lodging_info=" + lodging_info + ", lodging_cost=" + lodging_cost
+				+ ", l_name=" + l_name + "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
-	public int getEmployee_id() {
-		return employee_id;
+	public String getEmployee_id() {
+		return l_name;
 	}
 
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+	public void setEmployee_id(String l_name) {
+		this.l_name = l_name;
 	}
 
-	public int getLodging_id() {
-		return lodging_id;
+	public String getLodging_id() {
+		return f_name;
 	}
 
-	public void setLodging_id(int lodging_id) {
-		this.lodging_id = lodging_id;
+	public void setLodging_id(String f_name) {
+		this.f_name = f_name;
 	}
 
 	public String getLodging_info() {
@@ -85,10 +85,10 @@ public class Lodging {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + lodging_id;
 		result = prime * result + ((lodging_info == null) ? 0 : lodging_info.hashCode());
 		result = prime * result + ((lodging_cost == null) ? 0 : lodging_cost.hashCode());
-		result = prime * result + employee_id;
+		result = prime * result + ((f_name == null) ? 0 : f_name.hashCode());
+		result = prime * result + ((l_name == null) ? 0 : l_name.hashCode());
 		return result;
 	}
 
@@ -101,14 +101,14 @@ public class Lodging {
 		if (getClass() != obj.getClass())
 			return false;
 		Lodging other = (Lodging) obj;
-		if (lodging_id != other.lodging_id)
+		if (f_name != other.f_name)
 			return false;
 		if (lodging_info == null) {
 			if (other.lodging_info != null)
 				return false;
 		} else if (!lodging_info.equals(other.lodging_info))
 			return false;
-		if (employee_id != other.employee_id)
+		if (l_name != other.l_name)
 			return false;
 		return true;
 	}

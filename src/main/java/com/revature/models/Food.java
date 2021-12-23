@@ -5,10 +5,10 @@ package com.revature.models;
 public class Food {
 
 	//fields for the employee class - must match those in your database
-	private int food_id;
 	private String food_info;
 	private String food_cost;
-	private int employee_id;
+	private String f_name;
+	private String l_name;
 	
 	
 	//boilerplate code below------------------------------
@@ -21,45 +21,45 @@ public class Food {
 
 
 	//all args constructor
-	public Food(int food_id, String food_info, String food_cost, int employee_id) {
+	public Food(String f_name, String l_name, String food_info, String food_cost) {
 		super();
-		this.food_id = food_id;
+		this.f_name = f_name;
 		this.food_info = food_info;
 		this.food_cost = food_cost;
-		this.employee_id = employee_id;
+		this.l_name = l_name;
 	}
 	
-	//all args MINUS the employee_id primary key... WHY?
-	//we will eventually want the capability to add employees... and the employee_id auto increments!!!
-	public Food(int food_id, String food_info, String food_cost) {
+	//all args MINUS the l_name primary key... WHY?
+	//we will eventually want the capability to add employees... and the l_name auto increments!!!
+	public Food(String l_name, String food_info, String food_cost) {
 		super();
-		this.food_id = food_id;
+		this.l_name = l_name;
 		this.food_info = food_info;
 		this.food_cost = food_cost;
 	}
 	
 	@Override
 	public String toString() {
-		return "Food [food_id=" + food_id + ", food_info=" + food_info + ", food_cost=" + food_cost + ", employee_id="
-				+ employee_id + "]";
+		return "Food [f_name=" + f_name + ", food_info=" + food_info + ", food_cost=" + food_cost + ", l_name="
+				+ l_name + "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
-	public int getEmployee_id() {
-		return employee_id;
+	public String getEmployee_id() {
+		return l_name;
 	}
 
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+	public void setEmployee_id(String l_name) {
+		this.l_name = l_name;
 	}
 
-	public int getFood_id() {
-		return food_id;
+	public String getFood_id() {
+		return f_name;
 	}
 
 
-	public void setFood_id(int food_id) {
-		this.food_id = food_id;
+	public void setFood_id(String f_name) {
+		this.f_name = f_name;
 	}
 
 
@@ -90,10 +90,10 @@ public class Food {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + food_id;
 		result = prime * result + ((food_info == null) ? 0 : food_info.hashCode());
 		result = prime * result + ((food_cost == null) ? 0 : food_cost.hashCode());
-		result = prime * result + employee_id;
+		result = prime * result + ((f_name == null) ? 0 : f_name.hashCode());
+		result = prime * result + ((l_name == null) ? 0 : l_name.hashCode());
 		return result;
 	}
 
@@ -106,14 +106,14 @@ public class Food {
 		if (getClass() != obj.getClass())
 			return false;
 		Food other = (Food) obj;
-		if (food_id != other.food_id)
+		if (f_name != other.f_name)
 			return false;
 		if (food_info == null) {
 			if (other.food_info != null)
 				return false;
 		} else if (!food_info.equals(other.food_info))
 			return false;
-		if (employee_id != other.employee_id)
+		if (l_name != other.l_name)
 			return false;
 		return true;
 	}

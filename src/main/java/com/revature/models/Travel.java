@@ -5,10 +5,10 @@ package com.revature.models;
 public class Travel {
 
 	//fields for the employee class - must match those in your database
-	private int Travel_id;
 	private String Travel_info;
 	private String Travel_cost;
-	private int employee_id;
+	private String f_name;
+	private String l_name;
 	
 	
 	
@@ -21,45 +21,45 @@ public class Travel {
 	}
 
 	//all args constructor
-	public Travel(int travel_id, String travel_info, String travel_cost, int employee_id) {
+	public Travel(String f_name, String l_name , String travel_info, String travel_cost) {
 		super();
-		Travel_id = travel_id;
-		Travel_info = travel_info;
-		Travel_cost = travel_cost;
-		this.employee_id = employee_id;
+		this.f_name = f_name;
+		this.Travel_info = travel_info;
+		this.Travel_cost = travel_cost;
+		this.l_name = l_name;
 	}
 
-	//all args MINUS the employee_id primary key... WHY?
-	//we will eventually want the capability to add employees... and the employee_id auto increments!!!
-	public Travel(int travel_id, String travel_info, String travel_cost) {
+	//all args MINUS the l_name primary key... WHY?
+	//we will eventually want the capability to add employees... and the l_name auto increments!!!
+	public Travel(String l_name, String travel_info, String travel_cost) {
 		super();
-		Travel_id = travel_id;
-		Travel_info = travel_info;
-		Travel_cost = travel_cost;
+		this.l_name = l_name;
+		this.Travel_info = travel_info;
+		this.Travel_cost = travel_cost;
 		
 	}
 
 	@Override
 	public String toString() {
-		return "Travel [Travel_id=" + Travel_id + ", Travel_info=" + Travel_info + ", Travel_cost=" + Travel_cost
-				+ ", employee_id=" + employee_id + "]";
+		return "Travel [l_name=" + l_name + ", Travel_info=" + Travel_info + ", Travel_cost=" + Travel_cost
+				+ ", l_name=" + l_name + "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
-	public int getEmployee_id() {
-		return employee_id;
+	public String getEmployee_id() {
+		return l_name;
 	}
 
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+	public void setEmployee_id(String l_name) {
+		this.l_name = l_name;
 	}
 
-	public int getTravel_id() {
-		return Travel_id;
+	public String getl_name() {
+		return l_name;
 	}
 
-	public void setTravel_id(int travel_id) {
-		Travel_id = travel_id;
+	public void setl_name(String l_name) {
+		this.l_name = l_name;
 	}
 
 	public String getTravel_info() {
@@ -67,7 +67,7 @@ public class Travel {
 	}
 
 	public void setTravel_info(String travel_info) {
-		Travel_info = travel_info;
+		this.Travel_info = travel_info;
 	}
 
 	public String getTravel_cost() {
@@ -75,7 +75,7 @@ public class Travel {
 	}
 
 	public void setTravel_cost(String travel_cost) {
-		Travel_cost = travel_cost;
+		this.Travel_cost = travel_cost;
 	}
 
 	//hashcode and equals are necessary if we want to compare (test the equality of) our objects 
@@ -85,10 +85,10 @@ public class Travel {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + employee_id;
 		result = prime * result + ((Travel_info == null) ? 0 : Travel_info.hashCode());
 		result = prime * result + ((Travel_cost == null) ? 0 : Travel_cost.hashCode());
-		result = prime * result + employee_id;
+		result = prime * result + ((f_name == null) ? 0 : f_name.hashCode());
+		result = prime * result + ((l_name == null) ? 0 : l_name.hashCode());
 		return result;
 	}
 
@@ -101,14 +101,14 @@ public class Travel {
 		if (getClass() != obj.getClass())
 			return false;
 		Travel other = (Travel) obj;
-		if (Travel_id != other.Travel_id)
+		if (l_name != other.l_name)
 			return false;
 		if (Travel_info == null) {
 			if (other.Travel_info != null)
 				return false;
 		} else if (!Travel_info.equals(other.Travel_info))
 			return false;
-		if (employee_id != other.employee_id)
+		if (l_name != other.l_name)
 			return false;
 		return true;
 	}

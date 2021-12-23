@@ -18,7 +18,7 @@ public class FoodDAO {
 			ResultSet rs = null;
 			
 			//write the query that we want to send to the database, and assign it to a String
-			String food = "SELECT * FROM food;";
+			String food = "SELECT food_info, food_cost, employees.f_name , employees.l_name FROM food LEFT JOIN employees ON food.reference_id = employees.employee_id; ";
 			
 			//put the SQL query into a statemnt object (The connection object has a method for this!!)
 			Statement statement = conn.createStatement();
@@ -37,10 +37,10 @@ public class FoodDAO {
 				//Use the all args constructor to create a new Employee object from each returned row from the database
 				Food f = new Food(
 						//We want to use rs.get for each column in the record
-						rs.getInt("food_id"),
 						rs.getString("food_info"),
 						rs.getString("food_cost"),
-						rs.getInt("employee_id")								
+						rs.getString("f_name"),
+						rs.getString("l_name")								
 						);
 				//and populate the ArrayList with each new Employee Object				
 				foodList.add(f);//e is the new Employee object we created above

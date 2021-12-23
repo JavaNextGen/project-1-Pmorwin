@@ -20,10 +20,8 @@ public class LodgingDAO {
 				ResultSet rs = null;
 				
 				//write the query that we want to send to the database, and assign it to a String
+				String lod = "SELECT lodging_info, lodging_cost, employees.f_name , employees.l_name FROM lodging LEFT JOIN employees ON lodging.reference_id = employees.employee_id; ";
 				
-				
-				//String lod = "SELECT lodging_info, lodging_cost, employees.f_name , employees.l_name FROM lodging LEFT JOIN employees ON lodging.reference_id = employees.employee_id; ";
-				String lod = "SELECT * FROM lodging;";	
 				
 				//put the SQL query into a statemnt object (The connection object has a method for this!!)
 				Statement statement = conn.createStatement();
@@ -42,10 +40,10 @@ public class LodgingDAO {
 					//Use the all args constructor to create a new Employee object from each returned row from the database
 					Lodging l = new Lodging(
 							//We want to use rs.get for each column in the record
-							rs.getInt("lodging_id"),
 							rs.getString("lodging_info"),
 							rs.getString("lodging_cost"),
-							rs.getInt("employee_id")								
+							rs.getString("f_name"),
+							rs.getString("l_name")								
 							);
 					//and populate the ArrayList with each new Employee Object				
 					lodgingList.add(l);//e is the new Employee object we created above

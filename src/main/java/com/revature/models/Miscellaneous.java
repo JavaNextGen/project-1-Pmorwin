@@ -6,10 +6,10 @@ package com.revature.models;
 public class Miscellaneous {
 
 	//fields for the employee class - must match those in your database
-	private int misc_id;
 	private String misc_info;
 	private String misc_cost;
-	private int employee_id;
+	private String f_name;
+	private String l_name;
 	
 	
 	//boilerplate code below------------------------------
@@ -21,44 +21,44 @@ public class Miscellaneous {
 	}
 
 	//all args constructor
-	public Miscellaneous(int misc_id, String misc_info, String misc_cost, int employee_id) {
+	public Miscellaneous(String f_name, String l_name, String misc_info, String misc_cost) {
 		super();
-		this.misc_id = misc_id;
+		this.f_name = f_name;
 		this.misc_info = misc_info;
 		this.misc_cost = misc_cost;
-		this.employee_id = employee_id;
+		this.l_name = l_name;
 	}
 
-	//all args MINUS the employee_id primary key... WHY?
-	//we will eventually want the capability to add employees... and the employee_id auto increments!!!
-	public Miscellaneous(int misc_id, String misc_info, String misc_cost) {
+	//all args MINUS the l_name primary key... WHY?
+	//we will eventually want the capability to add employees... and the l_name auto increments!!!
+	public Miscellaneous(String l_name, String misc_info, String misc_cost) {
 		super();
-		this.misc_id = misc_id;
+		this.l_name = l_name;
 		this.misc_info = misc_info;
 		this.misc_cost = misc_cost;
 	}
 
 	@Override
 	public String toString() {
-		return "Miscellaneous [misc_id=" + misc_id + ", misc_info=" + misc_info + ", misc_cost=" + misc_cost
-				+ ", employee_id=" + employee_id + "]";
+		return "Miscellaneous [f_name=" + f_name + ", misc_info=" + misc_info + ", misc_cost=" + misc_cost
+				+ ", l_name=" + l_name + "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
-	public int getEmployee_id() {
-		return employee_id;
+	public String getEmployee_id() {
+		return l_name;
 	}
 
-	public void setEmployee_id(int employee_id) {
-		this.employee_id = employee_id;
+	public void setEmployee_id(String l_name) {
+		this.l_name = l_name;
 	}
 
-	public int getMisc_id() {
-		return misc_id;
+	public String getMisc_id() {
+		return f_name;
 	}
 
-	public void setMisc_id(int misc_id) {
-		this.misc_id = misc_id;
+	public void setMisc_id(String f_name) {
+		this.f_name = f_name;
 	}
 
 	public String getMisc_info() {
@@ -84,10 +84,10 @@ public class Miscellaneous {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + employee_id;
 		result = prime * result + ((misc_info == null) ? 0 : misc_info.hashCode());
 		result = prime * result + ((misc_cost == null) ? 0 : misc_cost.hashCode());
-		result = prime * result + employee_id;
+		result = prime * result + ((f_name == null) ? 0 : f_name.hashCode());
+		result = prime * result + ((l_name == null) ? 0 : l_name.hashCode());
 		return result;
 	}
 
@@ -100,14 +100,14 @@ public class Miscellaneous {
 		if (getClass() != obj.getClass())
 			return false;
 		Miscellaneous other = (Miscellaneous) obj;
-		if (misc_id != other.misc_id)
+		if (f_name != other.f_name)
 			return false;
 		if (misc_info == null) {
 			if (other.misc_info != null)
 				return false;
 		} else if (!misc_info.equals(other.misc_info))
 			return false;
-		if (employee_id != other.employee_id)
+		if (l_name != other.l_name)
 			return false;
 		return true;
 	}

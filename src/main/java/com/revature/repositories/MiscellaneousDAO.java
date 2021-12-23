@@ -20,7 +20,7 @@ public class MiscellaneousDAO {
 			ResultSet rs = null;
 			
 			//write the query that we want to send to the database, and assign it to a String
-			String misc = "SELECT * FROM misc;";
+			String misc = "SELECT misc_info, misc_cost, employees.f_name , employees.l_name FROM misc LEFT JOIN employees ON misc.reference_id = employees.employee_id; ";
 			
 			//put the SQL query into a statemnt object (The connection object has a method for this!!)
 			Statement statement = conn.createStatement();
@@ -39,10 +39,10 @@ public class MiscellaneousDAO {
 				//Use the all args constructor to create a new Employee object from each returned row from the database
 				Miscellaneous m = new Miscellaneous(
 						//We want to use rs.get for each column in the record
-						rs.getInt("misc_id"),
 						rs.getString("misc_info"),
 						rs.getString("misc_cost"),
-						rs.getInt("employee_id")								
+						rs.getString("f_name"),
+						rs.getString("l_name")								
 						);
 				//and populate the ArrayList with each new Employee Object				
 				miscList.add(m);//e is the new Employee object we created above

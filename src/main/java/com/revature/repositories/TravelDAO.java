@@ -19,7 +19,7 @@ public List<Travel> getTravel() { //This will use SQL SELECT functionality
 			ResultSet rs = null;
 			
 			//write the query that we want to send to the database, and assign it to a String
-			String travel = "SELECT * FROM travel;";
+			String travel = "SELECT travel_info, travel_cost, employees.f_name , employees.l_name FROM travel LEFT JOIN employees ON travel.reference_id = employees.employee_id; ";
 			
 			//put the SQL query into a statemnt object (The connection object has a method for this!!)
 			Statement statement = conn.createStatement();
@@ -38,10 +38,10 @@ public List<Travel> getTravel() { //This will use SQL SELECT functionality
 				//Use the all args constructor to create a new Employee object from each returned row from the database
 				Travel t = new Travel(
 						//We want to use rs.get for each column in the record
-						rs.getInt("travel_id"),
 						rs.getString("travel_info"),
 						rs.getString("travel_cost"),
-						rs.getInt("employee_id")								
+						rs.getString("f_name"),
+						rs.getString("l_name")								
 						);
 				//and populate the ArrayList with each new Employee Object				
 				travelList.add(t);//e is the new Employee object we created above
