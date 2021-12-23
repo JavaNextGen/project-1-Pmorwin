@@ -13,6 +13,21 @@ public class UserDAO {
         return Optional.empty();
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * <ul>
      *     <li>Should Insert a new User record into the DB with the provided information.</li>
