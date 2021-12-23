@@ -27,7 +27,6 @@ public class Menu_Employee {
 			
 			//menu options
 			cc.clearConsole();
-			System.out.flush();
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("~~~  Welcome to the Employee Reinbursement Entry System  ~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");

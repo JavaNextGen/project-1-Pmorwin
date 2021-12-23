@@ -3,14 +3,24 @@ package com.revature.models;
 import java.util.List;
 import java.util.Scanner;
 
-import com.revature.repositories.ReimbursementDAO;
+import com.revature.repositories.EmployeeDAO;
+import com.revature.repositories.FoodDAO;
+import com.revature.repositories.LodgingDAO;
+import com.revature.repositories.TravelDAO;
+import com.revature.util.ClearConsole;
+import com.revature.repositories.MiscellaneousDAO;
+
 
 
 
 
 public class Menu_Manager {
 
-	ReimbursementDAO rDAO = new ReimbursementDAO();
+	EmployeeDAO eDAO = new EmployeeDAO();
+	FoodDAO fDAO = new FoodDAO();
+	LodgingDAO lDAO = new LodgingDAO();
+	TravelDAO tDAO = new TravelDAO();
+	MiscellaneousDAO mDAO = new MiscellaneousDAO();
 	
 	//All of the menu display optinos and control flow are contained within this method
 	public void displayMenu() {
@@ -19,6 +29,8 @@ public class Menu_Manager {
 		
 		Scanner scan = new Scanner(System.in); //This is a scanner object to parse (take) user input
 	
+		ClearConsole cc = new ClearConsole();
+
 		//give the user a nice greeting
 
 		
@@ -26,9 +38,12 @@ public class Menu_Manager {
 		//this is going to hold and display all my menu options until displayMenu == flase
 		while(displayMenu) {
 			
+			cc.clearConsole();
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~  Welcome to the Employee Reinbursement Review System  ~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println();
+			System.out.println();
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("~~  Hello, which type of reinbursement requests would you like to view?  ~~ ");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -47,7 +62,7 @@ public class Menu_Manager {
 				
 				case 1: {
 					//need to get the list of employees from the repository layer
-					List<Lodging> lodging = rDAO.getLodging();
+					List<Lodging> lodging = lDAO.getLodging();
 					
 					//enhanced for loop to print out the Employees one by one
 					for(Lodging l : lodging) {
@@ -57,7 +72,7 @@ public class Menu_Manager {
 				}
 				case 2: {
 					//need to get the list of employees from the repository layer
-					List<Travel> travel = rDAO.getTravel();
+					List<Travel> travel = tDAO.getTravel();
 					
 					//enhanced for loop to print out the Employees one by one
 					for(Travel t : travel) {
@@ -67,7 +82,7 @@ public class Menu_Manager {
 				}
 				case 3: {
 					//need to get the list of employees from the repository layer
-					List<Food> food = rDAO.getFood();
+					List<Food> food = fDAO.getFood();
 					
 					//enhanced for loop to print out the Employees one by one
 					for(Food f : food) {
@@ -77,7 +92,7 @@ public class Menu_Manager {
 				}
 				case 4: {
 					//need to get the list of employees from the repository layer
-					List<Miscellaneous> miscellaneous = rDAO.getMiscellaneous();
+					List<Miscellaneous> miscellaneous = mDAO.getMiscellaneous();
 					
 					//enhanced for loop to print out the Employees one by one
 					for(Miscellaneous m : miscellaneous) {
