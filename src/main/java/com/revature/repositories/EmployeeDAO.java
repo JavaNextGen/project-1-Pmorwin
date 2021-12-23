@@ -1,6 +1,7 @@
 package com.revature.repositories;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -62,6 +63,35 @@ public class EmployeeDAO {
 		
 	}    
 	
+	public void submitEmployee(Employee newEmployee) {//This is INSERT functinoality
+		
+		try(Connection conn = ConnectionFactory.getConnection()){
+			
+			//well create a SQL statement using parameters to insert a new employee
+			String employee = "INSERT INTO employees (f_name, l_name) " //creating a line break for readability
+						+ "VALUES (?,?); "; //these are parameters!!! we have to specify the values of each "?"
+			
+			PreparedStatement ps = conn.prepareStatement(employee);//we use PreparedStatements for SQL commands with variables
+			
+			//Use the Preparedstatemnt objects method to insert values into query;s ?s
+			//the valuse will come from the Employee object we send in
+			ps.setString(1, newEmployee.getF_name());
+			ps.setString(2, newEmployee.getL_name());
+
+			//this executeUpdate() method actually sends and executes the SQL command we built in
+			ps.executeUpdate();//we use executeUpdate() for inserts, updates, and deletes
+			//we use executeQuery() for selects
+			
+			//send confirmation to the console if successful
+			System.out.println("Employee Information Sucessfully Inputted");
+			
+			
+		}
+		catch(SQLException e) {
+			System.out.println("There was an error while attempting to input Employee information");
+			e.printStackTrace();
+		}
+	}
 	
 }
 
