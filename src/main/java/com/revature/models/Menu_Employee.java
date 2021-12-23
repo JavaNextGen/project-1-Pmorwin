@@ -43,17 +43,18 @@ public class Menu_Employee {
 			switch(input) {
 				
 				case 1: {
-					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("How much are you looking to reinbursed for?");
-					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+					System.out.println("~~~~~~~~How much are you looking to reinbursed for?~~~~~~~~~");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					String reinbursement = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("You entered: " + reinbursement);
+					System.out.println("          You entered: " + reinbursement);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("Where did you stay?");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~Where did you stay?~~~~~~~~~~~~~~~~~~~~~");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					String hotel = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("You entered: " + hotel);
+					System.out.println("          You entered: " + hotel);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					
 					//Some code that enters the two variables into the database
@@ -61,30 +62,37 @@ public class Menu_Employee {
 					break;//we need a break in each case block, or else all the other calls will still run
 				}
 				case 2: {
-					System.out.println("How much are you looking to reinbursed for?");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+					System.out.println("~~~~~~~~How much are you looking to reinbursed for?~~~~~~~~~");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					String reinbursement = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("You entered: " + reinbursement);
+					System.out.println("          You entered: " + reinbursement);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("What did you spend money on?");
+					System.out.println("~~~~~~~~~~~~~~~~What did you spend money on?~~~~~~~~~~~~~~~~");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					String transport = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("You entered: " + transport);
+					System.out.println("          You entered: " + transport);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 				
 					//Some code that enters the two variables into the database
 
 					break;//we need a break in each case block, or else all the other calls will still run
 				}
-				case 3: {					System.out.println("How much are you looking to reinbursed for?");
+				case 3: {					
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+					System.out.println("~~~~~~~~How much are you looking to reinbursed for?~~~~~~~~~");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					String reinbursement = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("You entered: " + reinbursement);
+					System.out.println("          You entered: " + reinbursement);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("What did you purchase?");
+					System.out.println("~~~~~~~~~~~~~~~~~~~What did you purchase?~~~~~~~~~~~~~~~~~~~");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					String food = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("You entered: " + food);
+					System.out.println("          You entered: " + food);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					
 					//Some code that enters the two variables into the database
@@ -92,15 +100,18 @@ public class Menu_Employee {
 					break;//we need a break in each case block, or else all the other calls will still run
 				}
 				case 4: {
-					System.out.println("How much are you looking to reinbursed for?");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+					System.out.println("~~~~~~~~~How much are you looking to reinbursed for?~~~~~~~~");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					String reinbursement = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("You entered: " + reinbursement);
+					System.out.println("          You entered: " + reinbursement);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("What did you spend money on?");
+					System.out.println("~~~~~~~~~~~~~~~~What did you spend money on?~~~~~~~~~~~~~~~~");
+					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					String misc = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("You entered: " + misc);
+					System.out.println("          You entered: " + misc);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 				
 					//Some code that enters the two variables into the database
@@ -109,14 +120,14 @@ public class Menu_Employee {
 				}
 				case 5:{
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("Have a wonderful day!"); 
+					System.out.println("~~~~~~~~~~~~~~~~~~~~Have a wonderful day!~~~~~~~~~~~~~~~~~~~"); 
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					displayMenu = false;
 					break;
 				}
 				default: {
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-					System.out.println("That was not a valid response, please try again");
+					System.out.println("~~~~~~~That was not a valid response, please try again~~~~~~");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 				}
 			

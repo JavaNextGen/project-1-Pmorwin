@@ -67,7 +67,7 @@ public class Menu_Manager {
 				}
 				case 3: {
 					//need to get the list of employees from the repository layer
-					List<Food> food = fDAO.getFood();
+					List<Food> food = rDAO.getFood();
 					
 					//enhanced for loop to print out the Employees one by one
 					for(Food f : food) {
