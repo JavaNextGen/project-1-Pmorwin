@@ -9,10 +9,19 @@ import com.revature.repositories.LodgingDAO;
 import com.revature.repositories.TravelDAO;
 import com.revature.util.ClearConsole;
 import com.revature.repositories.MiscellaneousDAO;
+//
+//////
+////////THIS CLASS IS SPECIFICALLY FOR TESTING CHANGES TO THE MENU MANAGER CLASS BEFORE ACTUALLY DOING IT TO MAKE SURE NOTHIN GETS GOOFED UP
+////////THIS IS NOT THE MANAGER MENU THAT IS RUNN
+////////DO NOT RUNN FROM THIS
+//////
+//////
+////
+//////
 
 
 @SuppressWarnings("unused")
-public class Menu_Manager{
+public class Menu_Manager_Upgrade{
 
 	EmployeeDAO eDAO = new EmployeeDAO();
 	FoodDAO fDAO = new FoodDAO();
