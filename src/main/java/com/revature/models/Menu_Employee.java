@@ -53,7 +53,8 @@ public class Menu_Employee {
 			System.out.println("2: TRAVEL");
 			System.out.println("3: FOOD");
 			System.out.println("4: Miscellaneous");
-			System.out.println("5: EXIT");
+			System.out.println("5: Exit the Program");
+			System.out.println();
 			
 			//parse user input after they choose a menu option, and put it into a String variable
 			String input = scan.nextLine();

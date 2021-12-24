@@ -73,7 +73,7 @@ public class Menu_Manager{
 					System.out.println("2: TRAVEL");
 					System.out.println("3: FOOD");
 					System.out.println("4: Miscellaneous");
-					System.out.println("5: EXIT");
+					System.out.println("5: Exit the Program");
 					System.out.println();	
 					String case2 = scan.nextLine();//user input
 
