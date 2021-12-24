@@ -4,12 +4,11 @@ package com.revature.models;
 public class Lodging {
 
 	//fields for the employee class - must match those in your database
-	
-	private String lodging_info;
-	private String lodging_cost;
 	private String f_name;
 	private String l_name;
-	
+	private String lodging_cost;
+	private String lodging_info;
+
 	
 	//boilerplate code below------------------------------
 	
@@ -40,7 +39,7 @@ public class Lodging {
 	
 	@Override
 	public String toString() {
-		return "Lodging [f_name=" + f_name + ", lodging_info=" + lodging_info + ", lodging_cost=" + lodging_cost
+		return "Lodging [lodging_info=" + lodging_info + ", lodging_cost=" + lodging_cost + ", f_name=" + f_name
 				+ ", l_name=" + l_name + "]";
 	}
 

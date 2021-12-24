@@ -5,10 +5,12 @@ package com.revature.models;
 public class Food {
 
 	//fields for the employee class - must match those in your database
-	private String food_info;
-	private String food_cost;
 	private String f_name;
 	private String l_name;
+	private String food_cost;
+	private String food_info;
+
+
 	
 	
 	//boilerplate code below------------------------------
@@ -40,8 +42,8 @@ public class Food {
 	
 	@Override
 	public String toString() {
-		return "Food [f_name=" + f_name + ", food_info=" + food_info + ", food_cost=" + food_cost + ", l_name="
-				+ l_name + "]";
+		return "Food [food_info=" + food_info + ", food_cost=" + food_cost + ", f_name=" + f_name + ", l_name=" + l_name
+				+ "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 

@@ -39,10 +39,10 @@ public class FoodDAO {
 				//Use the all args constructor to create a new Employee object from each returned row from the database
 				Food f = new Food(
 						//We want to use rs.get for each column in the record
-						rs.getString("food_info"),
-						rs.getString("food_cost"),
 						rs.getString("f_name"),
-						rs.getString("l_name")								
+						rs.getString("l_name"),	
+						rs.getString("food_cost"),
+						rs.getString("food_info")							
 						);
 				//and populate the ArrayList with each new Employee Object				
 				foodList.add(f);//e is the new Employee object we created above
@@ -66,17 +66,18 @@ public class FoodDAO {
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
 			//well create a SQL statement using parameters to insert a new employee
-			String food = "INSERT INTO food (food_info, food_cost, f_name, l_name) " //creating a line break for readability
+			String food = "INSERT INTO food (f_name, l_name, food_cost, food_info) " //creating a line break for readability
 						+ "VALUES (?,?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
 			
 			PreparedStatement ps = conn.prepareStatement(food);//we use PreparedStatements for SQL commands with variables
 			
 			//Use the Preparedstatemnt objects method to insert values into query;s ?s
 			//the valuse will come from the Food object we send in
-			ps.setString(1, newFood.getFood_info());
-			ps.setString(2, newFood.getFood_cost());
-			ps.setString(3, newFood.getF_name());
-			ps.setString(4, newFood.getL_name());
+			ps.setString(1, newFood.getF_name());
+			ps.setString(2, newFood.getL_name());
+			ps.setString(3, newFood.getFood_cost());
+			ps.setString(4, newFood.getFood_info());
+
 			//this executeUpdate() method actually sends and executes the SQL command we built in
 			ps.executeUpdate();//we use executeUpdate() for inserts, updates, and deletes
 			//we use executeQuery() for selects

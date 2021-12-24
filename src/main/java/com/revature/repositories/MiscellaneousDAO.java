@@ -41,10 +41,10 @@ public class MiscellaneousDAO {
 				//Use the all args constructor to create a new Employee object from each returned row from the database
 				Miscellaneous m = new Miscellaneous(
 						//We want to use rs.get for each column in the record
-						rs.getString("misc_info"),
-						rs.getString("misc_cost"),
 						rs.getString("f_name"),
-						rs.getString("l_name")								
+						rs.getString("l_name"),	
+						rs.getString("misc_cost"),
+						rs.getString("misc_info")				
 						);
 				//and populate the ArrayList with each new Employee Object				
 				miscList.add(m);//e is the new Employee object we created above
@@ -69,17 +69,19 @@ public class MiscellaneousDAO {
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
 			//well create a SQL statement using parameters to insert a new employee
-			String misc = "INSERT INTO misc (misc_info,  misc_cost, f_name, l_name) " //creating a line break for readability
+			String misc = "INSERT INTO misc (f_name, l_name, misc_cost,  misc_info ) " //creating a line break for readability
 						+ "VALUES (?,?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
 			
 			PreparedStatement ps = conn.prepareStatement(misc);//we use PreparedStatements for SQL commands with variables
 			
 			//Use the Preparedstatemnt objects method to insert values into query;s ?s
 			//the valuse will come from the Miscellaneous object we send in
-			ps.setString(1, newMiscellaneous.getMisc_info());
-			ps.setString(2, newMiscellaneous.getMisc_cost());
-			ps.setString(3, newMiscellaneous.getF_name());
-			ps.setString(4, newMiscellaneous.getL_name());
+			ps.setString(1, newMiscellaneous.getF_name());
+			ps.setString(2, newMiscellaneous.getL_name());
+			ps.setString(3, newMiscellaneous.getMisc_cost());
+			ps.setString(4, newMiscellaneous.getMisc_info());
+
+
 			//this executeUpdate() method actually sends and executes the SQL command we built in
 			ps.executeUpdate();//we use executeUpdate() for inserts, updates, and deletes
 			//we use executeQuery() for selects

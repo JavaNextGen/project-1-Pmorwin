@@ -39,10 +39,10 @@ public class TravelDAO {
 				//Use the all args constructor to create a new Employee object from each returned row from the database
 				Travel t = new Travel(
 						//We want to use rs.get for each column in the record
-						rs.getString("travel_info"),
-						rs.getString("travel_cost"),
 						rs.getString("f_name"),
-						rs.getString("l_name")								
+						rs.getString("l_name"),						
+						rs.getString("travel_cost"),
+						rs.getString("travel_info")							
 						);
 				//and populate the ArrayList with each new Employee Object				
 				travelList.add(t);//e is the new Employee object we created above
@@ -67,17 +67,19 @@ public class TravelDAO {
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
 			//well create a SQL statement using parameters to insert a new employee
-			String travel = "INSERT INTO travel (travel_info, travel_cost, f_name, l_name) " //creating a line break for readability
+			String travel = "INSERT INTO travel (f_name, l_name, travel_cost, travel_info) " //creating a line break for readability
 						+ "VALUES (?,?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
 			
 			PreparedStatement ps = conn.prepareStatement(travel);//we use PreparedStatements for SQL commands with variables
 			
 			//Use the Preparedstatemnt objects method to insert values into query;s ?s
 			//the valuse will come from the Travel object we send in
-			ps.setString(1, newTravel.getTravel_info());
-			ps.setString(2, newTravel.getTravel_cost());
-			ps.setString(3, newTravel.getF_name());
-			ps.setString(4, newTravel.getL_name());
+			ps.setString(1, newTravel.getF_name());
+			ps.setString(2, newTravel.getL_name());
+			ps.setString(3, newTravel.getTravel_cost());
+			ps.setString(4, newTravel.getTravel_info());
+
+
 			//this executeUpdate() method actually sends and executes the SQL command we built in
 			ps.executeUpdate();//we use executeUpdate() for inserts, updates, and deletes
 			//we use executeQuery() for selects

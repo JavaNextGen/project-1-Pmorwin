@@ -5,10 +5,12 @@ package com.revature.models;
 public class Travel {
 
 	//fields for the employee class - must match those in your database
-	private String Travel_info;
-	private String Travel_cost;
 	private String f_name;
 	private String l_name;
+	private String travel_cost;
+	private String travel_info;
+
+
 	
 	
 	
@@ -24,8 +26,8 @@ public class Travel {
 	public Travel(String f_name, String l_name , String travel_info, String travel_cost) {
 		super();
 		this.f_name = f_name;
-		this.Travel_info = travel_info;
-		this.Travel_cost = travel_cost;
+		this.travel_info = travel_info;
+		this.travel_cost = travel_cost;
 		this.l_name = l_name;
 	}
 
@@ -34,24 +36,40 @@ public class Travel {
 	public Travel(String l_name, String travel_info, String travel_cost) {
 		super();
 		this.l_name = l_name;
-		this.Travel_info = travel_info;
-		this.Travel_cost = travel_cost;
+		this.travel_info = travel_info;
+		this.travel_cost = travel_cost;
 		
 	}
 
 	@Override
 	public String toString() {
-		return "Travel [l_name=" + l_name + ", Travel_info=" + Travel_info + ", Travel_cost=" + Travel_cost
+		return "Travel [l_name=" + l_name + ", travel_info=" + travel_info + ", travel_cost=" + travel_cost
 				+ ", l_name=" + l_name + "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
+	public String getTravel_info() {
+		return travel_info;
+	}
+
+	public void setTravel_info(String travel_info) {
+		this.travel_info = travel_info;
+	}
+
+	public String getTravel_cost() {
+		return travel_cost;
+	}
+
+	public void setTravel_cost(String travel_cost) {
+		this.travel_cost = travel_cost;
+	}
+
 	public String getF_name() {
 		return f_name;
 	}
 
-	public void setF_name(String l_name) {
-		this.l_name = f_name;
+	public void setF_name(String f_name) {
+		this.f_name = f_name;
 	}
 
 	public String getL_name() {
@@ -62,21 +80,6 @@ public class Travel {
 		this.l_name = l_name;
 	}
 
-	public String getTravel_info() {
-		return Travel_info;
-	}
-
-	public void setTravel_info(String travel_info) {
-		this.Travel_info = travel_info;
-	}
-
-	public String getTravel_cost() {
-		return Travel_cost;
-	}
-
-	public void setTravel_cost(String travel_cost) {
-		this.Travel_cost = travel_cost;
-	}
 
 	//hashcode and equals are necessary if we want to compare (test the equality of) our objects 
 	//"Equals/hashcode/toString from the object class initially refer to default memory values
@@ -85,8 +88,8 @@ public class Travel {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Travel_info == null) ? 0 : Travel_info.hashCode());
-		result = prime * result + ((Travel_cost == null) ? 0 : Travel_cost.hashCode());
+		result = prime * result + ((travel_info == null) ? 0 : travel_info.hashCode());
+		result = prime * result + ((travel_cost == null) ? 0 : travel_cost.hashCode());
 		result = prime * result + ((f_name == null) ? 0 : f_name.hashCode());
 		result = prime * result + ((l_name == null) ? 0 : l_name.hashCode());
 		return result;
@@ -103,10 +106,10 @@ public class Travel {
 		Travel other = (Travel) obj;
 		if (l_name != other.l_name)
 			return false;
-		if (Travel_info == null) {
-			if (other.Travel_info != null)
+		if (travel_info == null) {
+			if (other.travel_info != null)
 				return false;
-		} else if (!Travel_info.equals(other.Travel_info))
+		} else if (!travel_info.equals(other.travel_info))
 			return false;
 		if (l_name != other.l_name)
 			return false;

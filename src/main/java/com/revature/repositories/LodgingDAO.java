@@ -42,10 +42,11 @@ public class LodgingDAO {
 					//Use the all args constructor to create a new Lodging object from each returned row from the database
 					Lodging l = new Lodging(
 							//We want to use rs.get for each column in the record
-							rs.getString("lodging_info"),
-							rs.getString("lodging_cost"),
 							rs.getString("f_name"),
-							rs.getString("l_name")								
+							rs.getString("l_name"),	
+							rs.getString("lodging_cost"),
+							rs.getString("lodging_info")
+												
 							);
 					//and populate the ArrayList with each new Lodging Object				
 					lodgingList.add(l);//e is the new Lodging object we created above
@@ -70,7 +71,7 @@ public class LodgingDAO {
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
 			//well create a SQL statement using parameters to insert a new employee
-			String lodging = "INSERT INTO lodging (lodging_info, lodging_cost, f_name, l_name) " //creating a line break for readability
+			String lodging = "INSERT INTO lodging (f_name, l_name, lodging_cost, lodging_info) " //creating a line break for readability
 						+ "VALUES (?,?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
 			
 			PreparedStatement ps = conn.prepareStatement(lodging);//we use PreparedStatements for SQL commands with variables
@@ -78,12 +79,12 @@ public class LodgingDAO {
 			
 			//Use the Preparedstatemnt objects method to insert values into query;s ?s
 			//the valuse will come from the Lodging object we send in
-			ps.setString(1, newLodging.getLodging_info());
-			ps.setString(2, newLodging.getLodging_cost());
-			ps.setString(3, newLodging.getF_name());
-			ps.setString(4, newLodging.getL_name());
-			
-		
+			ps.setString(1, newLodging.getF_name());
+			ps.setString(2, newLodging.getL_name());
+			ps.setString(3, newLodging.getLodging_cost());
+			ps.setString(4, newLodging.getLodging_info());
+
+
 
 			//this executeUpdate() method actually sends and executes the SQL command we built in
 			ps.executeUpdate();//we use executeUpdate() for inserts, updates, and deletes

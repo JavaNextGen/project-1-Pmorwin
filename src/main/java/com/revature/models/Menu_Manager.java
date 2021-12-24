@@ -55,13 +55,13 @@ public class Menu_Manager {
 			System.out.println("5: EXIT");
 			
 			//parse user input after they choose a menu option, and put it into a String variable
-			int input = scan.nextInt();
+			String input = scan.nextLine();
 			
 			//Switch statement that takes the user input and executes the appropriate code
 			
 			switch(input) {
 				
-				case 1: {
+				case "1": {
 					//need to get the list of employees from the repository layer
 					List<Lodging> lodging = lDAO.getLodging();
 					
@@ -71,7 +71,7 @@ public class Menu_Manager {
 					}
 					break;//we need a break in each case block, or else all the other calls will still run
 				}
-				case 2: {
+				case "2": {
 					//need to get the list of employees from the repository layer
 					List<Travel> travel = tDAO.getTravel();
 					
@@ -81,7 +81,7 @@ public class Menu_Manager {
 					}
 					break;//we need a break in each case block, or else all the other calls will still run
 				}
-				case 3: {
+				case "3": {
 					//need to get the list of employees from the repository layer
 					List<Food> food = fDAO.getFood();
 					
@@ -91,7 +91,7 @@ public class Menu_Manager {
 					}
 					break;//we need a break in each case block, or else all the other calls will still run
 				}
-				case 4: {
+				case "4": {
 					//need to get the list of employees from the repository layer
 					List<Miscellaneous> miscellaneous = mDAO.getMiscellaneous();
 					
@@ -101,7 +101,7 @@ public class Menu_Manager {
 					}
 					break;//we need a break in each case block, or else all the other calls will still run
 				}
-				case 5:{
+				case "5":{
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~  Have a wonderful day!  ~~~~~~~~~~~~~~~~~~~~~~~~~"); 
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");

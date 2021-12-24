@@ -6,10 +6,12 @@ package com.revature.models;
 public class Miscellaneous {
 
 	//fields for the employee class - must match those in your database
-	private String misc_info;
-	private String misc_cost;
 	private String f_name;
 	private String l_name;
+	private String misc_cost;
+	private String misc_info;
+
+
 	
 	
 	//boilerplate code below------------------------------
@@ -40,8 +42,8 @@ public class Miscellaneous {
 
 	@Override
 	public String toString() {
-		return "Miscellaneous [f_name=" + f_name + ", misc_info=" + misc_info + ", misc_cost=" + misc_cost
-				+ ", l_name=" + l_name + "]";
+		return "Miscellaneous [misc_info=" + misc_info + ", misc_cost=" + misc_cost + ", f_name=" + f_name + ", l_name="
+				+ l_name + "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
