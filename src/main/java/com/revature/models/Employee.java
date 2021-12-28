@@ -1,14 +1,20 @@
 package com.revature.models;
 
+import java.util.Objects;
+
 import com.revature.models.Employee;
 
 //This Class represents the employees table in our database
 public class Employee {
 
 	//fields for the employee class - must match those in your database
+	private int e_id;
+	private String company_email;
 	private String f_name;
 	private String l_name;
-
+	private String employee_username;
+	private String employee_password;
+	private int role_id;
 	
 	
 	//boilerplate code below------------------------------
@@ -18,22 +24,35 @@ public class Employee {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	//all args constructor
-	public Employee(String f_name, String l_name) {
+	
+	public Employee(int e_id, String company_email, String f_name, String l_name, String employee_username,
+			String employee_password, int role_id) {
 		super();
+		this.e_id = e_id;
+		this.company_email = company_email;
 		this.f_name = f_name;
 		this.l_name = l_name;
-		
+		this.employee_username = employee_username;
+		this.employee_password = employee_password;
+		this.role_id = role_id;
 	}
 
-	//all args MINUS the employee_id primary key... WHY?
-	//we will eventually want the capability to add employees... and the employee_id auto increments!!!
+	public Employee(String company_email, String f_name, String l_name, String employee_username,
+			String employee_password, int role_id) {
+		super();
+		this.company_email = company_email;
+		this.f_name = f_name;
+		this.l_name = l_name;
+		this.employee_username = employee_username;
+		this.employee_password = employee_password;
+		this.role_id = role_id;
+	}
 
-	//so our Employee objects can be printed out - returns a String describing the object
 	@Override
 	public String toString() {
-		return "Employee [ f_name=" + f_name + ", l_name=" + l_name + "]";
+		return "Employee [e_id=" + e_id + ", company_email=" + company_email + ", f_name=" + f_name + ", l_name="
+				+ l_name + ", employee_username=" + employee_username + ", employee_password=" + employee_password
+				+ ", role_id=" + role_id + "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
@@ -54,16 +73,49 @@ public class Employee {
 	}
 
 	
-	//hashcode and equals are necessary if we want to compare (test the equality of) our objects 
-	//"Equals/hashcode/toString from the object class initially refer to default memory values
-	//but you customize a class to describe and compare itself based off its implementation" - Peter 2021
+	public int getE_id() {
+		return e_id;
+	}
+
+	public void setE_id(int e_id) {
+		this.e_id = e_id;
+	}
+
+	public String getCompany_email() {
+		return company_email;
+	}
+
+	public void setCompany_email(String company_email) {
+		this.company_email = company_email;
+	}
+
+	public String getEmployee_username() {
+		return employee_username;
+	}
+
+	public void setEmployee_username(String employee_username) {
+		this.employee_username = employee_username;
+	}
+
+	public String getEmployee_password() {
+		return employee_password;
+	}
+
+	public void setEmployee_password(String employee_password) {
+		this.employee_password = employee_password;
+	}
+
+	public int getRole_id() {
+		return role_id;
+	}
+
+	public void setRole_id(int role_id) {
+		this.role_id = role_id;
+	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((f_name == null) ? 0 : f_name.hashCode());
-		result = prime * result + ((l_name == null) ? 0 : l_name.hashCode());
-		return result;
+		return Objects.hash(company_email, e_id, employee_password, employee_username, f_name, l_name, role_id);
 	}
 
 	@Override
@@ -75,11 +127,9 @@ public class Employee {
 		if (getClass() != obj.getClass())
 			return false;
 		Employee other = (Employee) obj;
-		if (f_name == null) {
-			if (other.f_name != null)
-				return false;
-		} else if (!f_name.equals(other.f_name))
-			return false;
-		return true;
+		return Objects.equals(company_email, other.company_email) && e_id == other.e_id
+				&& Objects.equals(employee_password, other.employee_password)
+				&& Objects.equals(employee_username, other.employee_username) && Objects.equals(f_name, other.f_name)
+				&& Objects.equals(l_name, other.l_name) && role_id == other.role_id;
 	}
 }

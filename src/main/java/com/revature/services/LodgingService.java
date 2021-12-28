@@ -16,4 +16,9 @@ public class LodgingService {
 		lDAO.submitLodging(newLodging);
 		
 	}	
+	public void updateLodging(int decision, int e_id) {
+		
+		lDAO.updateLodgingStatus(decision, e_id);
+		
+	}
 }

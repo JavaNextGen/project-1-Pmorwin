@@ -1,13 +1,12 @@
 package com.revature.models;
 
-
+import java.util.Objects;
 
 //This Class represents the employees table in our database
 public class Miscellaneous {
 
 	//fields for the employee class - must match those in your database
-	private String f_name;
-	private String l_name;
+	private int e_id;
 	private String misc_cost;
 	private String misc_info;
 
@@ -23,46 +22,36 @@ public class Miscellaneous {
 	}
 
 	//all args constructor
-	public Miscellaneous(String f_name, String l_name, String misc_info, String misc_cost) {
+	public Miscellaneous(int e_id, String misc_cost, String misc_info) {
 		super();
-		this.f_name = f_name;
-		this.misc_info = misc_info;
+		this.e_id = e_id;
 		this.misc_cost = misc_cost;
-		this.l_name = l_name;
+		this.misc_info = misc_info;
 	}
 
 	//all args MINUS the l_name primary key... WHY?
 	//we will eventually want the capability to add employees... and the l_name auto increments!!!
-	public Miscellaneous(String l_name, String misc_info, String misc_cost) {
+	public Miscellaneous(String misc_cost, String misc_info) {
 		super();
-		this.l_name = l_name;
-		this.misc_info = misc_info;
 		this.misc_cost = misc_cost;
+		this.misc_info = misc_info;
 	}
 
 	@Override
 	public String toString() {
-		return "Miscellaneous [misc_info=" + misc_info + ", misc_cost=" + misc_cost + ", f_name=" + f_name + ", l_name="
-				+ l_name + "]";
+		return "Miscellaneous [e_id=" + e_id + ", misc_cost=" + misc_cost + ", misc_info=" + misc_info + "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
-	public String getL_name() {
-		return l_name;
+	
+	public int getE_id() {
+		return e_id;
 	}
 
-	public void setL_name(String l_name) {
-		this.l_name = l_name;
+	public void setE_id(int e_id) {
+		this.e_id = e_id;
 	}
-
-	public String getF_name() {
-		return f_name;
-	}
-
-	public void setF_name(String f_name) {
-		this.f_name = f_name;
-	}
-
+	
 	public String getMisc_info() {
 		return misc_info;
 	}
@@ -79,18 +68,9 @@ public class Miscellaneous {
 		this.misc_cost = misc_cost;
 	}
 
-	//hashcode and equals are necessary if we want to compare (test the equality of) our objects 
-	//"Equals/hashcode/toString from the object class initially refer to default memory values
-	//but you customize a class to describe and compare itself based off its implementation" - Peter 2021
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((misc_info == null) ? 0 : misc_info.hashCode());
-		result = prime * result + ((misc_cost == null) ? 0 : misc_cost.hashCode());
-		result = prime * result + ((f_name == null) ? 0 : f_name.hashCode());
-		result = prime * result + ((l_name == null) ? 0 : l_name.hashCode());
-		return result;
+		return Objects.hash(e_id, misc_cost, misc_info);
 	}
 
 	@Override
@@ -102,15 +82,7 @@ public class Miscellaneous {
 		if (getClass() != obj.getClass())
 			return false;
 		Miscellaneous other = (Miscellaneous) obj;
-		if (f_name != other.f_name)
-			return false;
-		if (misc_info == null) {
-			if (other.misc_info != null)
-				return false;
-		} else if (!misc_info.equals(other.misc_info))
-			return false;
-		if (l_name != other.l_name)
-			return false;
-		return true;
+		return e_id == other.e_id && Objects.equals(misc_cost, other.misc_cost)
+				&& Objects.equals(misc_info, other.misc_info);
 	}
 }

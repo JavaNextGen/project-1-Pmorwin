@@ -40,8 +40,13 @@ public class EmployeeDAO {
 				//Use the all args constructor to create a new Employee object from each returned row from the database
 				Employee e = new Employee(
 						//We want to use rs.get for each column in the record
+						rs.getInt("e_id"),
+						rs.getString("company_email"),
 						rs.getString("f_name"),
-						rs.getString("l_name")
+						rs.getString("l_name"),
+						rs.getString("employee_username"),
+						rs.getString("employee_password"),
+						rs.getInt("role_id")
 						);
 				//and populate the ArrayList with each new Employee Object				
 				employeeList.add(e);//e is the new Employee object we created above
@@ -66,16 +71,20 @@ public class EmployeeDAO {
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
 			//well create a SQL statement using parameters to insert a new employee
-			String employee = "INSERT INTO employees (f_name, l_name) " //creating a line break for readability
-						+ "VALUES (?,?); "; //these are parameters!!! we have to specify the values of each "?"
+			String employee = "INSERT INTO employee (employee_id, company_email, f_name, l_name, employee_username, employee_password, role_id) " //creating a line break for readability
+						+ "VALUES (DEFAULT,?,?,?,?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
 			
 			PreparedStatement ps = conn.prepareStatement(employee);//we use PreparedStatements for SQL commands with variables
 			
 			//Use the Preparedstatemnt objects method to insert values into query;s ?s
 			//the valuse will come from the Employee object we send in
-			ps.setString(1, newEmployee.getF_name());
-			ps.setString(2, newEmployee.getL_name());
-
+			ps.setString(1,newEmployee.getCompany_email());
+			ps.setString(2, newEmployee.getF_name());
+			ps.setString(3, newEmployee.getL_name());
+			ps.setString(4, newEmployee.getEmployee_username());
+			ps.setString(5,newEmployee.getEmployee_password());
+			ps.setInt(6, newEmployee.getRole_id());
+			
 			//this executeUpdate() method actually sends and executes the SQL command we built in
 			ps.executeUpdate();//we use executeUpdate() for inserts, updates, and deletes
 			//we use executeQuery() for selects

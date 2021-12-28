@@ -15,4 +15,10 @@ public class FoodService {
 		fDAO.submitFood(newFood);
 		
 	}	
+	public void updateFood(int decision, int e_id) {
+		
+		fDAO.updateFoodStatus(decision, e_id);
+		
+	}
+
 }

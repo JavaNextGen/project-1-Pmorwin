@@ -1,12 +1,12 @@
 package com.revature.models;
 
+import java.util.Objects;
 
 //This Class represents the employees table in our database
 public class Food {
 
 	//fields for the employee class - must match those in your database
-	private String f_name;
-	private String l_name;
+	private int e_id;
 	private String food_cost;
 	private String food_info;
 
@@ -23,45 +23,34 @@ public class Food {
 
 
 	//all args constructor
-	public Food(String f_name, String l_name, String food_info, String food_cost) {
+	public Food(int e_id, String food_cost, String food_info) {
 		super();
-		this.f_name = f_name;
-		this.food_info = food_info;
+		this.e_id = e_id;
 		this.food_cost = food_cost;
-		this.l_name = l_name;
+		this.food_info = food_info;
 	}
 	
 	//all args MINUS the l_name primary key... WHY?
 	//we will eventually want the capability to add employees... and the l_name auto increments!!!
-	public Food(String l_name, String food_info, String food_cost) {
+	public Food(String food_cost, String food_info) {
 		super();
-		this.l_name = l_name;
-		this.food_info = food_info;
 		this.food_cost = food_cost;
+		this.food_info = food_info;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Food [food_info=" + food_info + ", food_cost=" + food_cost + ", f_name=" + f_name + ", l_name=" + l_name
-				+ "]";
+		return "Food [e_id=" + e_id + ", food_cost=" + food_cost + ", food_info=" + food_info + "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
-	public String getL_name() {
-		return l_name;
-	}
-
-	public void setL_name(String l_name) {
-		this.l_name = l_name;
-	}
-
-	public String getF_name() {
-		return f_name;
+	public int getE_id() {
+		return e_id;
 	}
 
 
-	public void setF_name(String f_name) {
-		this.f_name = f_name;
+	public void setE_id(int e_id) {
+		this.e_id = e_id;
 	}
 
 
@@ -85,18 +74,9 @@ public class Food {
 	}
 
 
-	//hashcode and equals are necessary if we want to compare (test the equality of) our objects 
-	//"Equals/hashcode/toString from the object class initially refer to default memory values
-	//but you customize a class to describe and compare itself based off its implementation" - Peter 2021
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((food_info == null) ? 0 : food_info.hashCode());
-		result = prime * result + ((food_cost == null) ? 0 : food_cost.hashCode());
-		result = prime * result + ((f_name == null) ? 0 : f_name.hashCode());
-		result = prime * result + ((l_name == null) ? 0 : l_name.hashCode());
-		return result;
+		return Objects.hash(e_id, food_cost, food_info);
 	}
 
 	@Override
@@ -108,15 +88,7 @@ public class Food {
 		if (getClass() != obj.getClass())
 			return false;
 		Food other = (Food) obj;
-		if (f_name != other.f_name)
-			return false;
-		if (food_info == null) {
-			if (other.food_info != null)
-				return false;
-		} else if (!food_info.equals(other.food_info))
-			return false;
-		if (l_name != other.l_name)
-			return false;
-		return true;
+		return e_id == other.e_id && Objects.equals(food_cost, other.food_cost)
+				&& Objects.equals(food_info, other.food_info);
 	}
 }
