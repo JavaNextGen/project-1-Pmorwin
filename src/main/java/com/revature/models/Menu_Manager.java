@@ -30,6 +30,7 @@ public class Menu_Manager{
 	LodgingService ls = new LodgingService();
 	TravelService ts = new TravelService();
 	MiscellaneousService ms = new MiscellaneousService();
+	Menu_Employee e_menu = new Menu_Employee();
 	
 	//All of the menu display optinos and control flow are contained within this method
 	public void displayMenu() {
@@ -60,7 +61,8 @@ public class Menu_Manager{
 			System.out.println("2: View Request History by Category");
 			System.out.println("3: View Request History by Employee");
 			System.out.println("4: Enter New Employee into the System");
-			System.out.println("5: Exit the Program");
+			System.out.println("5: Input a Reinbursement Request");
+			System.out.println("6: Exit the Program");
 			System.out.println();
 			String input = scan.nextLine();//user input
 			
@@ -656,11 +658,13 @@ public class Menu_Manager{
 						}
 					break;
 				}
+				case "5":{
+					e_menu.displayMenu();
+				}
 				
 				
 				
-				
-				case "5": {
+				case "6": {
 					System.out.println();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~  Have a wonderful day!  ~~~~~~~~~~~~~~~~~~~~~~~~~"); 
