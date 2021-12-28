@@ -104,15 +104,13 @@ public class Menu_Manager{
 									switch(statusChange) {
 										case "1":{
 											int decision = 1;
-											String s_id = lodging.get(0).toString();	
-											int e_id = Integer.parseInt(s_id);
+											int e_id = lodging.get(0).getE_id();
 											ls.updateLodging(decision, e_id);
 											break;
 										}
 										case "2":{
 											int decision = 2;
-											String s_id = lodging.get(0).toString();
-											int e_id = Integer.parseInt(s_id);
+											int e_id = lodging.get(0).getE_id();
 											ls.updateLodging(decision, e_id);
 											break;
 										}
@@ -157,15 +155,13 @@ public class Menu_Manager{
 								switch(statusChange) {
 									case "1":{
 										int decision = 1;
-										String s_id = travel.get(0).toString();		
-										int e_id = Integer.parseInt(s_id);
+										int e_id = travel.get(0).getE_id();
 										ls.updateLodging(decision, e_id);
 										break;
 									}
 									case "2":{
 										int decision = 2;
-										String s_id = travel.get(0).toString();	
-										int e_id = Integer.parseInt(s_id);
+										int e_id = travel.get(0).getE_id();
 										ls.updateLodging(decision, e_id);
 										break;
 									}
@@ -210,15 +206,13 @@ public class Menu_Manager{
 								switch(statusChange) {
 									case "1":{
 										int decision = 1;
-										String s_id = food.get(0).toString();		
-										int e_id = Integer.parseInt(s_id);
+										int e_id = food.get(0).getE_id();
 										ls.updateLodging(decision, e_id);
 										break;
 									}
 									case "2":{
 										int decision = 2;
-										String s_id = food.get(0).toString();		
-										int e_id = Integer.parseInt(s_id);
+										int e_id = food.get(0).getE_id();
 										ls.updateLodging(decision, e_id);
 										break;
 									}
@@ -263,15 +257,13 @@ public class Menu_Manager{
 								switch(statusChange) {
 									case "1":{
 										int decision = 1;
-										String s_id = miscellaneous.get(0).toString();		
-										int e_id = Integer.parseInt(s_id);
+										int e_id = miscellaneous.get(0).getE_id();
 										ls.updateLodging(decision, e_id);
 										break;
 									}
 									case "2":{
 										int decision = 2;
-										String s_id = miscellaneous.get(0).toString();		
-										int e_id = Integer.parseInt(s_id);
+										int e_id = miscellaneous.get(0).getE_id();
 										ls.updateLodging(decision, e_id);
 										break;
 									}
