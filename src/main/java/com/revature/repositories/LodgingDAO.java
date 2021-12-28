@@ -42,6 +42,7 @@ public class LodgingDAO {
 					Lodging l = new Lodging(
 							//We want to use rs.get for each column in the record
 							rs.getInt("employee_id"),
+							rs.getInt("lodging_id"),
 							rs.getString("lodging_cost"),
 							rs.getString("lodging_info")
 												
@@ -92,7 +93,8 @@ public class LodgingDAO {
 				//Use the all args constructor to create a new Lodging object from each returned row from the database
 				Lodging l = new Lodging(
 						//We want to use rs.get for each column in the record
-						rs.getInt("employee_id"),	
+						rs.getInt("employee_id"),
+						rs.getInt("lodging_id"),
 						rs.getString("lodging_cost"),
 						rs.getString("lodging_info")
 											
@@ -145,17 +147,17 @@ public class LodgingDAO {
 			e.printStackTrace();
 		}
 	}
-	public void updateLodgingStatus(int decision, int e_id) {
+	public void updateLodgingStatus(int decision, int lodging_id) {
 			
 			try(Connection conn = ConnectionFactory.getConnection()){
 				
-				String lodging = "UPDATE lodging SET status = '?' WHERE employee_id = '?';";
+				String lodging = "UPDATE lodging SET status = ? WHERE lodging_id = ?;";
 				
 				PreparedStatement ps = conn.prepareStatement(lodging);
 				
 				
 				ps.setInt(1, decision);
-				ps.setInt(2, e_id);
+				ps.setInt(2, lodging_id);
 			
 				
 				ps.executeUpdate();

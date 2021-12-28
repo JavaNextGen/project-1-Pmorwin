@@ -14,9 +14,9 @@ public class TravelService {
 		//we need to call the DAO method that inserts the new Employee
 		tDAO.submitTravel(newTravel);
 	}
-	public void updateTravel(int decision, int e_id) {
+	public void updateTravel(int decision, int travel_id) {
 		
-		tDAO.updateTravelStatus(decision, e_id);
+		tDAO.updateTravelStatus(decision, travel_id);
 		
 	}
 	

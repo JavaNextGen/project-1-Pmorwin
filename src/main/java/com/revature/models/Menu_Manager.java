@@ -104,14 +104,14 @@ public class Menu_Manager{
 									switch(statusChange) {
 										case "1":{
 											int decision = 1;
-											int e_id = lodging.get(0).getE_id();
-											ls.updateLodging(decision, e_id);
+											int lodging_id = lodging.get(0).getLodging_id();
+											ls.updateLodging(decision, lodging_id);
 											break;
 										}
 										case "2":{
 											int decision = 2;
-											int e_id = lodging.get(0).getE_id();
-											ls.updateLodging(decision, e_id);
+											int lodging_id = lodging.get(0).getLodging_id();
+											ls.updateLodging(decision, lodging_id);
 											break;
 										}
 										case "3":{
@@ -155,14 +155,14 @@ public class Menu_Manager{
 								switch(statusChange) {
 									case "1":{
 										int decision = 1;
-										int e_id = travel.get(0).getE_id();
-										ls.updateLodging(decision, e_id);
+										int travel_id = travel.get(0).getTravel_id();
+										ls.updateLodging(decision, travel_id);
 										break;
 									}
 									case "2":{
 										int decision = 2;
-										int e_id = travel.get(0).getE_id();
-										ls.updateLodging(decision, e_id);
+										int travel_id = travel.get(0).getTravel_id();
+										ls.updateLodging(decision, travel_id);
 										break;
 									}
 									case "3":{
@@ -206,14 +206,14 @@ public class Menu_Manager{
 								switch(statusChange) {
 									case "1":{
 										int decision = 1;
-										int e_id = food.get(0).getE_id();
-										ls.updateLodging(decision, e_id);
+										int food_id = food.get(0).getFood_id();
+										ls.updateLodging(decision, food_id);
 										break;
 									}
 									case "2":{
 										int decision = 2;
-										int e_id = food.get(0).getE_id();
-										ls.updateLodging(decision, e_id);
+										int food_id = food.get(0).getFood_id();
+										ls.updateLodging(decision, food_id);
 										break;
 									}
 									case "3":{
@@ -257,14 +257,14 @@ public class Menu_Manager{
 								switch(statusChange) {
 									case "1":{
 										int decision = 1;
-										int e_id = miscellaneous.get(0).getE_id();
-										ls.updateLodging(decision, e_id);
+										int misc_id = miscellaneous.get(0).getMisc_id();
+										ls.updateLodging(decision, misc_id);
 										break;
 									}
 									case "2":{
 										int decision = 2;
-										int e_id = miscellaneous.get(0).getE_id();
-										ls.updateLodging(decision, e_id);
+										int misc_id = miscellaneous.get(0).getMisc_id();
+										ls.updateLodging(decision, misc_id);
 										break;
 									}
 									case "3":{

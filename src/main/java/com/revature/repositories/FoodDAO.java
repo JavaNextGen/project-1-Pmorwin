@@ -40,6 +40,7 @@ public class FoodDAO {
 				Food f = new Food(
 						//We want to use rs.get for each column in the record
 						rs.getInt("employee_id"),
+						rs.getInt("food_id"),
 						rs.getString("food_cost"),
 						rs.getString("food_info")							
 						);
@@ -89,6 +90,7 @@ public class FoodDAO {
 					Food f = new Food(
 							//We want to use rs.get for each column in the record
 							rs.getInt("employee_id"),
+							rs.getInt("food_id"),
 							rs.getString("food_cost"),
 							rs.getString("food_info")							
 							);
@@ -137,17 +139,17 @@ public class FoodDAO {
 			e.printStackTrace();
 		}
 	}    
-	public void updateFoodStatus(int decision, int e_id) {
+	public void updateFoodStatus(int decision, int food_id) {
 		
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
-			String food = "UPDATE food SET status = '?' WHERE employee_id = '?';";
+			String food = "UPDATE food SET status = ? WHERE food_id = ?;";
 			
 			PreparedStatement ps = conn.prepareStatement(food);
 			
 			
 			ps.setInt(1, decision);
-			ps.setInt(2, e_id);
+			ps.setInt(2, food_id);
 			
 			ps.executeUpdate();
 			

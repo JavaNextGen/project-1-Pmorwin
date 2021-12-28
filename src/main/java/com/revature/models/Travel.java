@@ -7,6 +7,7 @@ public class Travel {
 
 	//fields for the employee class - must match those in your database
 	private int e_id;
+	private int travel_id;
 	private String travel_cost;
 	private String travel_info;
 
@@ -22,25 +23,31 @@ public class Travel {
 		// TODO Auto-generated constructor stub
 	}
 
-	//all args constructor
-	public Travel(int e_id, String travel_cost, String travel_info) {
+
+
+	public Travel(int travel_id, String travel_cost, String travel_info) {
 		super();
-		this.e_id = e_id;
+		this.travel_id = travel_id;
 		this.travel_cost = travel_cost;
 		this.travel_info = travel_info;
 	}
 
-	//all args MINUS the l_name primary key... WHY?
-	//we will eventually want the capability to add employees... and the l_name auto increments!!!
-	public Travel(String travel_cost, String travel_info) {
+
+
+	public Travel(int e_id, int travel_id, String travel_cost, String travel_info) {
 		super();
+		this.e_id = e_id;
+		this.travel_id = travel_id;
 		this.travel_cost = travel_cost;
 		this.travel_info = travel_info;
 	}
+
+
 
 	@Override
 	public String toString() {
-		return "Travel [e_id=" + e_id + ", travel_cost=" + travel_cost + ", travel_info=" + travel_info + "]";
+		return "Travel [e_id=" + e_id + ", travel_id=" + travel_id + ", travel_cost=" + travel_cost + ", travel_info="
+				+ travel_info + "]";
 	}
 
 
@@ -52,6 +59,14 @@ public class Travel {
 
 	public void setTravel_info(String travel_info) {
 		this.travel_info = travel_info;
+	}
+
+	public int getTravel_id() {
+		return travel_id;
+	}
+
+	public void setTravel_id(int travel_id) {
+		this.travel_id = travel_id;
 	}
 
 	public String getTravel_cost() {
@@ -72,7 +87,7 @@ public class Travel {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(e_id, travel_cost, travel_info);
+		return Objects.hash(e_id, travel_cost, travel_id, travel_info);
 	}
 
 	@Override
@@ -84,7 +99,7 @@ public class Travel {
 		if (getClass() != obj.getClass())
 			return false;
 		Travel other = (Travel) obj;
-		return e_id == other.e_id && Objects.equals(travel_cost, other.travel_cost)
+		return e_id == other.e_id && Objects.equals(travel_cost, other.travel_cost) && travel_id == other.travel_id
 				&& Objects.equals(travel_info, other.travel_info);
 	}
 }

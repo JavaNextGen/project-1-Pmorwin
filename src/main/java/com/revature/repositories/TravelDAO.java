@@ -39,7 +39,8 @@ public class TravelDAO {
 				//Use the all args constructor to create a new Employee object from each returned row from the database
 				Travel t = new Travel(
 						//We want to use rs.get for each column in the record
-						rs.getInt("employee_id"),					
+						rs.getInt("employee_id"),
+						rs.getInt("travel_id"),
 						rs.getString("travel_cost"),
 						rs.getString("travel_info")							
 						);
@@ -88,7 +89,8 @@ public class TravelDAO {
 					//Use the all args constructor to create a new Employee object from each returned row from the database
 					Travel t = new Travel(
 							//We want to use rs.get for each column in the record
-							rs.getInt("employee_id"),					
+							rs.getInt("employee_id"),
+							rs.getInt("travel_id"),
 							rs.getString("travel_cost"),
 							rs.getString("travel_info")							
 							);
@@ -138,17 +140,17 @@ public class TravelDAO {
 			e.printStackTrace();
 		}
 	}
-	public void updateTravelStatus(int decision, int e_id) {
+	public void updateTravelStatus(int decision, int travel_id) {
 		
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
-			String travel = "UPDATE travel SET status = '?' WHERE employee_id = '?';";
+			String travel = "UPDATE travel SET status = ? WHERE travel_id = ?;";
 			
 			PreparedStatement ps = conn.prepareStatement(travel);
 			
 			
 			ps.setInt(1, decision);
-			ps.setInt(2, e_id);
+			ps.setInt(2, travel_id);
 			
 			ps.executeUpdate();
 			

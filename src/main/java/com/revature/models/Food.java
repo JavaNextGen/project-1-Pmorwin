@@ -7,6 +7,7 @@ public class Food {
 
 	//fields for the employee class - must match those in your database
 	private int e_id;
+	private int food_id;
 	private String food_cost;
 	private String food_info;
 
@@ -22,25 +23,27 @@ public class Food {
 	}
 
 
-	//all args constructor
-	public Food(int e_id, String food_cost, String food_info) {
+	public Food(int food_id, String food_cost, String food_info) {
 		super();
-		this.e_id = e_id;
-		this.food_cost = food_cost;
-		this.food_info = food_info;
-	}
-	
-	//all args MINUS the l_name primary key... WHY?
-	//we will eventually want the capability to add employees... and the l_name auto increments!!!
-	public Food(String food_cost, String food_info) {
-		super();
+		this.food_id = food_id;
 		this.food_cost = food_cost;
 		this.food_info = food_info;
 	}
 
+
+	public Food(int e_id, int food_id, String food_cost, String food_info) {
+		super();
+		this.e_id = e_id;
+		this.food_id = food_id;
+		this.food_cost = food_cost;
+		this.food_info = food_info;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Food [e_id=" + e_id + ", food_cost=" + food_cost + ", food_info=" + food_info + "]";
+		return "Food [e_id=" + e_id + ", food_id=" + food_id + ", food_cost=" + food_cost + ", food_info=" + food_info
+				+ "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
@@ -53,7 +56,14 @@ public class Food {
 		this.e_id = e_id;
 	}
 
+	public int getFood_id() {
+		return food_id;
+	}
 
+	public void setFood_id(int food_id) {
+		this.food_id = food_id;
+	}
+	
 	public String getFood_info() {
 		return food_info;
 	}
@@ -76,7 +86,7 @@ public class Food {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(e_id, food_cost, food_info);
+		return Objects.hash(e_id, food_cost, food_id, food_info);
 	}
 
 	@Override
@@ -88,7 +98,7 @@ public class Food {
 		if (getClass() != obj.getClass())
 			return false;
 		Food other = (Food) obj;
-		return e_id == other.e_id && Objects.equals(food_cost, other.food_cost)
+		return e_id == other.e_id && Objects.equals(food_cost, other.food_cost) && food_id == other.food_id
 				&& Objects.equals(food_info, other.food_info);
 	}
 }

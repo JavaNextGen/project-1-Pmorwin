@@ -15,9 +15,9 @@ public class MiscellaneousService {
 		mDAO.submitMiscellaneous(newMiscellaneous);
 		
 	}	
-	public void updateMisc(int decision, int e_id) {
+	public void updateMisc(int decision, int misc_id) {
 		
-		mDAO.updateMiscStatus(decision, e_id);
+		mDAO.updateMiscStatus(decision, misc_id);
 		
 	}
 }

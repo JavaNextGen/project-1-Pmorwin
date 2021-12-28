@@ -7,6 +7,7 @@ public class Lodging {
 
 	//fields for the employee class - must match those in your database
 	private int e_id;
+	private int lodging_id;
 	private String lodging_cost;
 	private String lodging_info;
 
@@ -19,25 +20,30 @@ public class Lodging {
 		// TODO Auto-generated constructor stub
 	}
 	
-	//all args constructor
-	public Lodging(int e_id, String lodging_cost, String lodging_info) {
+
+	public Lodging(int lodging_id, String lodging_cost, String lodging_info) {
 		super();
-		this.e_id = e_id;
+		this.lodging_id = lodging_id;
 		this.lodging_cost = lodging_cost;
 		this.lodging_info = lodging_info;
 	}
 
-	//all args MINUS the l_name primary key... WHY?
-	//we will eventually want the capability to add employees... and the l_name auto increments!!!
-	public Lodging(String lodging_cost, String lodging_info) {
+
+
+	public Lodging(int e_id, int lodging_id, String lodging_cost, String lodging_info) {
 		super();
+		this.e_id = e_id;
+		this.lodging_id = lodging_id;
 		this.lodging_cost = lodging_cost;
 		this.lodging_info = lodging_info;
 	}
+
+
 
 	@Override
 	public String toString() {
-		return "Lodging [e_id=" + e_id + ", lodging_cost=" + lodging_cost + ", lodging_info=" + lodging_info + "]";
+		return "Lodging [e_id=" + e_id + ", lodging_id=" + lodging_id + ", lodging_cost=" + lodging_cost
+				+ ", lodging_info=" + lodging_info + "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
@@ -49,6 +55,14 @@ public class Lodging {
 		this.e_id = e_id;
 	}
 
+	public int getLodging_id() {
+		return lodging_id;
+	}
+
+	public void setLodging_id(int lodging_id) {
+		this.lodging_id = lodging_id;
+	}
+	
 	public String getLodging_info() {
 		return lodging_info;
 	}
@@ -68,7 +82,7 @@ public class Lodging {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(e_id, lodging_cost, lodging_info);
+		return Objects.hash(e_id, lodging_cost, lodging_id, lodging_info);
 	}
 
 	@Override
@@ -80,7 +94,7 @@ public class Lodging {
 		if (getClass() != obj.getClass())
 			return false;
 		Lodging other = (Lodging) obj;
-		return e_id == other.e_id && Objects.equals(lodging_cost, other.lodging_cost)
+		return e_id == other.e_id && Objects.equals(lodging_cost, other.lodging_cost) && lodging_id == other.lodging_id
 				&& Objects.equals(lodging_info, other.lodging_info);
 	}
 }

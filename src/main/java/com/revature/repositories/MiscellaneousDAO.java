@@ -42,6 +42,7 @@ public class MiscellaneousDAO {
 				Miscellaneous m = new Miscellaneous(
 						//We want to use rs.get for each column in the record
 						rs.getInt("employee_id"),
+						rs.getInt("misc_id"),
 						rs.getString("misc_cost"),
 						rs.getString("misc_info")				
 						);
@@ -91,6 +92,7 @@ public class MiscellaneousDAO {
 					Miscellaneous m = new Miscellaneous(
 							//We want to use rs.get for each column in the record
 							rs.getInt("employee_id"),
+							rs.getInt("misc_id"),
 							rs.getString("misc_cost"),
 							rs.getString("misc_info")				
 							);
@@ -140,17 +142,17 @@ public class MiscellaneousDAO {
 			e.printStackTrace();
 		}
 	}
-	public void updateMiscStatus(int decision, int e_id) {
+	public void updateMiscStatus(int decision, int misc_id) {
 		
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
-			String misc = "UPDATE misc SET status = '?' WHERE employee_id = '?';";
+			String misc = "UPDATE misc SET status = ? WHERE misc_id = ?;";
 			
 			PreparedStatement ps = conn.prepareStatement(misc);
 			
 			
 			ps.setInt(1, decision);
-			ps.setInt(2, e_id);
+			ps.setInt(2, misc_id);
 			
 			ps.executeUpdate();
 			
