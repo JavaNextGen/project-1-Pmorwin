@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.util.List;
 import java.util.Scanner;
 import com.revature.repositories.EmployeeDAO;
 import com.revature.repositories.FoodDAO;
@@ -37,6 +38,7 @@ public class Case3 {
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println();
 			int e_id = scan.nextInt();
+			@SuppressWarnings("unused")
 			String space = scan.nextLine();
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("		You entered: " + e_id);
@@ -46,26 +48,33 @@ public class Case3 {
 			System.out.println("~~~~~~~~~~~  Lodging Requests for This Employee  ~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println();
-			lDAO.getEmployeeLodging(e_id);
+			List<Lodging> lodging= lDAO.getEmployeeLodging(e_id);
+			for(Lodging l : lodging) {
+				System.out.println(l);}
 			System.out.println();
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~~  Travel Requests for This Employee  ~~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println();
-			tDAO.getEmployeeTravel(e_id);
+			List<Travel> travel = tDAO.getEmployeeTravel(e_id);
+			for(Travel t : travel) {
+				System.out.println(t);}
 			System.out.println();
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~~~~  Food Requests for This Employee  ~~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println();
-			fDAO.getEmployeeFood(e_id);
+			List<Food> food = fDAO.getEmployeeFood(e_id);
+			for(Food f : food) {
+				System.out.println(f);}
 			System.out.println();
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("~~~~~~~~  Miscellaneous Requests for This Employee  ~~~~~~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println();
-			mDAO.getEmployeeMiscellaneous(e_id);
-		
+			List<Miscellaneous> misc = mDAO.getEmployeeMiscellaneous(e_id);
+			for(Miscellaneous m : misc) {
+				System.out.println(m);}
 			System.out.println();
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~  Do you need to submit another request?  ~~~~~~~~~");
