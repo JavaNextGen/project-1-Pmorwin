@@ -129,12 +129,13 @@ public List<Travel> getEmployeeTravel(int e_id) { //This will use SQL SELECT fun
 			//the valuse will come from the Food object we send in
 			ps.setInt(1, e_id);
 			
-			Statement statement = conn.createStatement();
+			//Statement statement = conn.createStatement();
 			
 			
 			//EXECUTE THE QUERY, by putting the results of the query into our ResultSet object
 			//The statement object has a method that takes Strings to execute as a SQL query
-			rs = statement.executeQuery(travel);
+			rs = ps.executeQuery();
+			//rs = statement.executeQuery(travel);
 			
 			//ALL the code above, make a call to the database, now we need to store the date in an ArrayList
 			

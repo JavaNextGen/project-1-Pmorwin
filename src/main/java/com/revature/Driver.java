@@ -29,7 +29,7 @@ public class Driver {
 		
 		
 		//Here is the actual functionality of our application---------------------------------------------
-		Boolean Starter = true;
+		Boolean Starter = false;
 	
 		if (Starter) {
 		e_menu.displayMenu();

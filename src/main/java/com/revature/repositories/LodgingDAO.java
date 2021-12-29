@@ -132,7 +132,7 @@ public class LodgingDAO {
 			
 			//Use the Preparedstatemnt objects method to insert values into query;s ?s
 			//the valuse will come from the Food object we send in
-			//ps.setInt(1, e_id);
+			ps.setInt(1, e_id);
 			
 			
 			//Statement statement = conn.createStatement();

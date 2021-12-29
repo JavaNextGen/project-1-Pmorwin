@@ -131,12 +131,13 @@ public List<Miscellaneous> getEmployeeMiscellaneous(int e_id) { //This will use 
 			//the valuse will come from the Food object we send in
 			ps.setInt(1, e_id);
 			
-			Statement statement = conn.createStatement();
+			//Statement statement = conn.createStatement();
 			
 			
 			//EXECUTE THE QUERY, by putting the results of the query into our ResultSet object
 			//The statement object has a method that takes Strings to execute as a SQL query
-			rs = statement.executeQuery(misc);
+			rs = ps.executeQuery();
+			//rs = statement.executeQuery(misc);
 			//ALL the code above, make a call to the database, now we need to store the date in an ArrayList
 			
 			//Create an empty List to be killed with the data from the database
