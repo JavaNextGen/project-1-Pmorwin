@@ -70,7 +70,8 @@ public class Menu_Employee {
 					System.out.println("~~~~~~~~~~~~~  Please Insert your Employee ID  ~~~~~~~~~~~~~");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println();
-					String e_id = scan.nextLine();
+					int e_id = scan.nextInt();
+					String space = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println("		You entered: " + e_id);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -94,7 +95,7 @@ public class Menu_Employee {
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println();
 					System.out.println();
-					Lodging newLodging = new Lodging(Integer.parseInt(e_id), lodging_cost, lodging_info);
+					Lodging newLodging = new Lodging(e_id, lodging_cost, lodging_info);
 					lServices.inputLodging(newLodging);		
 					
 					System.out.println();
@@ -144,7 +145,8 @@ public class Menu_Employee {
 					System.out.println("~~~~~~~~~~~~~  Please Insert your Employee ID  ~~~~~~~~~~~~~");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println();
-					String e_id = scan.nextLine();
+					int e_id = scan.nextInt();
+					String space = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println("		You entered: " + e_id);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -167,7 +169,7 @@ public class Menu_Employee {
 					System.out.println("		You entered: " + travel_info);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println();
-					Travel newTravel = new Travel(Integer.parseInt(e_id), travel_cost, travel_info);
+					Travel newTravel = new Travel(e_id, travel_cost, travel_info);
 					tServices.inputTravel(newTravel);		
 					
 					System.out.println();
@@ -217,7 +219,8 @@ public class Menu_Employee {
 					System.out.println("~~~~~~~~~~~~~  Please Insert your Employee ID  ~~~~~~~~~~~~~");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println();
-					String e_id = scan.nextLine();
+					int e_id = scan.nextInt();
+					String space = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println("		You entered: " + e_id);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -240,7 +243,7 @@ public class Menu_Employee {
 					System.out.println("		You entered: " + food_info);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println();
-					Food newFood = new Food(Integer.parseInt(e_id), food_cost, food_info);
+					Food newFood = new Food(e_id, food_cost, food_info);
 					fServices.inputFood(newFood);		
 								
 					System.out.println();
@@ -290,7 +293,8 @@ public class Menu_Employee {
 					System.out.println("~~~~~~~~~~~~~  Please Insert your Employee ID  ~~~~~~~~~~~~~");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println();
-					String e_id = scan.nextLine();
+					int e_id = scan.nextInt();
+					String space = scan.nextLine();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println("		You entered: " + e_id);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -313,7 +317,7 @@ public class Menu_Employee {
 					System.out.println("		You entered: " + misc_info);
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println();					
-					Miscellaneous newMiscellaneous = new Miscellaneous(Integer.parseInt(e_id), misc_cost,  misc_info );
+					Miscellaneous newMiscellaneous = new Miscellaneous(e_id, misc_cost,  misc_info );
 					mServices.inputMiscellaneous(newMiscellaneous);		
 					System.out.println();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");

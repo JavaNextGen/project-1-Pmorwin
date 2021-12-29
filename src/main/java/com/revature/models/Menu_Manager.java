@@ -71,10 +71,6 @@ public class Menu_Manager{
 					}	
 				case "3": {
 					c3.case3();	
-					System.out.println();
-					System.out.println("This Feature is not yet implemented");
-					System.out.println();
-					displayMenu = false;
 					break;
 				}
 				case "4":{
