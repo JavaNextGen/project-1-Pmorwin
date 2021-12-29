@@ -23,9 +23,9 @@ public class Miscellaneous {
 	}
 
 
-	public Miscellaneous(int misc_id, String misc_cost, String misc_info) {
+	public Miscellaneous(int e_id, String misc_cost, String misc_info) {
 		super();
-		this.misc_id = misc_id;
+		this.e_id = e_id;
 		this.misc_cost = misc_cost;
 		this.misc_info = misc_info;
 	}

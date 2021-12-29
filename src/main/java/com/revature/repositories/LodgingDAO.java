@@ -181,8 +181,8 @@ public class LodgingDAO {
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
 			//well create a SQL statement using parameters to insert a new employee
-			String lodging = "INSERT INTO lodging (employee_id, lodging_cost, lodging_info) " //creating a line break for readability
-						+ "VALUES (?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
+			String lodging = "INSERT INTO lodging (lodging_id, employee_id, lodging_cost, lodging_info) " //creating a line break for readability
+						+ "VALUES (Default,?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
 			
 			PreparedStatement ps = conn.prepareStatement(lodging);//we use PreparedStatements for SQL commands with variables
 			

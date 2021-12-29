@@ -25,9 +25,9 @@ public class Travel {
 
 
 
-	public Travel(int travel_id, String travel_cost, String travel_info) {
+	public Travel(int e_id, String travel_cost, String travel_info) {
 		super();
-		this.travel_id = travel_id;
+		this.e_id = e_id;
 		this.travel_cost = travel_cost;
 		this.travel_info = travel_info;
 	}

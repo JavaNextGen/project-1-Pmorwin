@@ -21,9 +21,9 @@ public class Lodging {
 	}
 	
 
-	public Lodging(int lodging_id, String lodging_cost, String lodging_info) {
+	public Lodging(int e_id, String lodging_cost, String lodging_info) {
 		super();
-		this.lodging_id = lodging_id;
+		this.e_id = e_id;
 		this.lodging_cost = lodging_cost;
 		this.lodging_info = lodging_info;
 	}

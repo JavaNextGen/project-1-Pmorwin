@@ -23,9 +23,9 @@ public class Food {
 	}
 
 
-	public Food(int food_id, String food_cost, String food_info) {
+	public Food(int e_id, String food_cost, String food_info) {
 		super();
-		this.food_id = food_id;
+		this.e_id = e_id;
 		this.food_cost = food_cost;
 		this.food_info = food_info;
 	}
