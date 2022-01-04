@@ -113,63 +113,63 @@ public class MiscellaneousDAO {
 			
 			
 		}   
-public List<Miscellaneous> getEmployeeMiscellaneous(int e_id) { //This will use SQL SELECT functionality
-		
-		try(Connection conn = ConnectionFactory.getConnection()){ //all of my SQL stuff will be within this try block
+	public List<Miscellaneous> getEmployeeMiscellaneous(int e_id) { //This will use SQL SELECT functionality
 			
-			//Initialize an empty ResultSet object that will store the results of our SQL query
-			ResultSet rs = null;
-			
-			//write the query that we want to send to the database, and assign it to a String
-			String misc = "SELECT * FROM misc WHERE employee_id = ?;";
-			//String food = "SELECT food_info, food_cost, employees.f_name , employees.l_name FROM food LEFT JOIN employees ON food.reference_id = employees.employee_id; ";
-			
-			//put the SQL query into a statemnt object (The connection object has a method for this!!)
-			PreparedStatement ps = conn.prepareStatement(misc);//we use PreparedStatements for SQL commands with variables
-			
-			//Use the Preparedstatemnt objects method to insert values into query;s ?s
-			//the valuse will come from the Food object we send in
-			ps.setInt(1, e_id);
-			
-			//Statement statement = conn.createStatement();
-			
-			
-			//EXECUTE THE QUERY, by putting the results of the query into our ResultSet object
-			//The statement object has a method that takes Strings to execute as a SQL query
-			rs = ps.executeQuery();
-			//rs = statement.executeQuery(misc);
-			//ALL the code above, make a call to the database, now we need to store the date in an ArrayList
-			
-			//Create an empty List to be killed with the data from the database
-			List<Miscellaneous> miscList = new ArrayList<>();
-			
-			//while there are results in the ResultSet
-			while(rs.next()) {
-				//Use the all args constructor to create a new Employee object from each returned row from the database
-				Miscellaneous m = new Miscellaneous(
-						//We want to use rs.get for each column in the record
-						rs.getInt("employee_id"),
-						rs.getInt("misc_id"),
-						rs.getString("misc_cost"),
-						rs.getString("misc_info")				
-						);
-				//and populate the ArrayList with each new Employee Object				
-				miscList.add(m);//e is the new Employee object we created above
+			try(Connection conn = ConnectionFactory.getConnection()){ //all of my SQL stuff will be within this try block
+				
+				//Initialize an empty ResultSet object that will store the results of our SQL query
+				ResultSet rs = null;
+				
+				//write the query that we want to send to the database, and assign it to a String
+				String misc = "SELECT * FROM misc WHERE employee_id = ?;";
+				//String food = "SELECT food_info, food_cost, employees.f_name , employees.l_name FROM food LEFT JOIN employees ON food.reference_id = employees.employee_id; ";
+				
+				//put the SQL query into a statemnt object (The connection object has a method for this!!)
+				PreparedStatement ps = conn.prepareStatement(misc);//we use PreparedStatements for SQL commands with variables
+				
+				//Use the Preparedstatemnt objects method to insert values into query;s ?s
+				//the valuse will come from the Food object we send in
+				ps.setInt(1, e_id);
+				
+				//Statement statement = conn.createStatement();
+				
+				
+				//EXECUTE THE QUERY, by putting the results of the query into our ResultSet object
+				//The statement object has a method that takes Strings to execute as a SQL query
+				rs = ps.executeQuery();
+				//rs = statement.executeQuery(misc);
+				//ALL the code above, make a call to the database, now we need to store the date in an ArrayList
+				
+				//Create an empty List to be killed with the data from the database
+				List<Miscellaneous> miscList = new ArrayList<>();
+				
+				//while there are results in the ResultSet
+				while(rs.next()) {
+					//Use the all args constructor to create a new Employee object from each returned row from the database
+					Miscellaneous m = new Miscellaneous(
+							//We want to use rs.get for each column in the record
+							rs.getInt("employee_id"),
+							rs.getInt("misc_id"),
+							rs.getString("misc_cost"),
+							rs.getString("misc_info")				
+							);
+					//and populate the ArrayList with each new Employee Object				
+					miscList.add(m);//e is the new Employee object we created above
+				}
+				
+				//when there are no more results in rs, the while loop will break
+				//finally we will return the ArrayList of employees
+				return miscList;
+			}
+			catch(SQLException e){
+				System.out.println("There was an error in selecting Miscellaneous");
+				e.printStackTrace();
 			}
 			
-			//when there are no more results in rs, the while loop will break
-			//finally we will return the ArrayList of employees
-			return miscList;
-		}
-		catch(SQLException e){
-			System.out.println("There was an error in selecting Miscellaneous");
-			e.printStackTrace();
-		}
-		
-		return null; //we add this after the try/catch block so Java wont yell. Because we cant make sure the try block will run
-		
-		
-	}   
+			return null; //we add this after the try/catch block so Java wont yell. Because we cant make sure the try block will run
+			
+			
+		}   
 	public void submitMiscellaneous(Miscellaneous newMiscellaneous) {//This is INSERT functinoality
 		
 		try(Connection conn = ConnectionFactory.getConnection()){

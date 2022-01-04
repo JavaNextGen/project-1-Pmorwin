@@ -64,8 +64,7 @@ public class EmployeeDAO {
 		return null; //we add this after the try/catch block so Java wont yell. Because we cant make sure the try block will run
 		
 		
-	}    
-	
+	}    	
 	public void submitEmployee(Employee newEmployee) {//This is INSERT functinoality
 		
 		try(Connection conn = ConnectionFactory.getConnection()){

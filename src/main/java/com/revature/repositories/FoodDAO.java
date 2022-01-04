@@ -168,34 +168,34 @@ public class FoodDAO {
 		
 		
 	}  
-public void submitFood(Food newFood) {//This is INSERT functinoality
-		
-		try(Connection conn = ConnectionFactory.getConnection()){
+	public void submitFood(Food newFood) {//This is INSERT functinoality
 			
-			//well create a SQL statement using parameters to insert a new employee
-			String food = "INSERT INTO food (employee_id, food_cost, food_info) " //creating a line break for readability
-						+ "VALUES (?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
-			
-			PreparedStatement ps = conn.prepareStatement(food);//we use PreparedStatements for SQL commands with variables
-			
-			//Use the Preparedstatemnt objects method to insert values into query;s ?s
-			//the valuse will come from the Food object we send in
-			ps.setInt(1, newFood.getE_id());
-			ps.setString(2, newFood.getFood_cost());
-			ps.setString(3, newFood.getFood_info());
-
-			//this executeUpdate() method actually sends and executes the SQL command we built in
-			ps.executeUpdate();//we use executeUpdate() for inserts, updates, and deletes
-			//we use executeQuery() for selects
-			
-			//send confirmation to the console if successful
-			System.out.println("Food Information Sucessfully Inputted");
-		}
-		catch(SQLException e) {
-			System.out.println("There was an error while attempting to input Food information");
-			e.printStackTrace();
-		}
-	}    
+			try(Connection conn = ConnectionFactory.getConnection()){
+				
+				//well create a SQL statement using parameters to insert a new employee
+				String food = "INSERT INTO food (employee_id, food_cost, food_info) " //creating a line break for readability
+							+ "VALUES (?,?,?); "; //these are parameters!!! we have to specify the values of each "?"
+				
+				PreparedStatement ps = conn.prepareStatement(food);//we use PreparedStatements for SQL commands with variables
+				
+				//Use the Preparedstatemnt objects method to insert values into query;s ?s
+				//the valuse will come from the Food object we send in
+				ps.setInt(1, newFood.getE_id());
+				ps.setString(2, newFood.getFood_cost());
+				ps.setString(3, newFood.getFood_info());
+	
+				//this executeUpdate() method actually sends and executes the SQL command we built in
+				ps.executeUpdate();//we use executeUpdate() for inserts, updates, and deletes
+				//we use executeQuery() for selects
+				
+				//send confirmation to the console if successful
+				System.out.println("Food Information Sucessfully Inputted");
+			}
+			catch(SQLException e) {
+				System.out.println("There was an error while attempting to input Food information");
+				e.printStackTrace();
+			}
+		}    
 	public void updateFoodStatus(int decision, int food_id) {
 		
 		try(Connection conn = ConnectionFactory.getConnection()){

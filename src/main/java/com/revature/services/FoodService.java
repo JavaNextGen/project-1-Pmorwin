@@ -1,24 +1,27 @@
 package com.revature.services;
 
+import java.util.List;
+
 import com.revature.models.Food;
 import com.revature.repositories.FoodDAO;
 
 public class FoodService {
 	FoodDAO fDAO = new FoodDAO();//So that I can use the method sform the employeeDAO
 
-	public void inputFood(Food newFood) {
-		
-		//Take in the employee object sent from the menu and send it to the employee dao to be inserted into the database 
-		
-		
-		//we need to call the DAO method that inserts the new Employee
-		fDAO.submitFood(newFood);
-		
+	public List<Food> getFood() {
+		return fDAO.getFood();
+	}
+	public List<Food> getSingleFood() {
+		return fDAO.getSingleFood();
+	}
+	public List<Food> getEmployeeFood(int e_id) {
+		return fDAO.getEmployeeFood(e_id);
+	}
+	public void submitFood(Food newFood) {
+		fDAO.submitFood(newFood);	
 	}	
-	public void updateFood(int decision, int food_id) {
-		
+	public void updateFoodStatus(int decision, int food_id) {
 		fDAO.updateFoodStatus(decision, food_id);
-		
 	}
 
 }

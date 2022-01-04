@@ -2,12 +2,6 @@ package com.revature.models;
 
 import java.util.List;
 import java.util.Scanner;
-
-import com.revature.repositories.EmployeeDAO;
-import com.revature.repositories.FoodDAO;
-import com.revature.repositories.LodgingDAO;
-import com.revature.repositories.MiscellaneousDAO;
-import com.revature.repositories.TravelDAO;
 import com.revature.services.EmployeeService;
 import com.revature.services.FoodService;
 import com.revature.services.LodgingService;
@@ -18,11 +12,6 @@ public class Case1 {
 	
 	Scanner scan = new Scanner(System.in);
 	boolean displayMenu = true;
-	EmployeeDAO eDAO = new EmployeeDAO();
-	FoodDAO fDAO = new FoodDAO();
-	LodgingDAO lDAO = new LodgingDAO();
-	TravelDAO tDAO = new TravelDAO();
-	MiscellaneousDAO mDAO = new MiscellaneousDAO();
 	EmployeeService eServices = new EmployeeService();
 	FoodService fs = new FoodService();
 	LodgingService ls = new LodgingService();
@@ -53,7 +42,7 @@ public class Case1 {
 					boolean doubleNested = true;
 					while (doubleNested) {
 						//need to get the list of employees from the repository layer
-						List<Lodging> lodging = lDAO.getSingleLodging();
+						List<Lodging> lodging = ls.getSingleLodging();
 						//enhanced for loop to print lodging req
 						for(Lodging l : lodging) {
 							System.out.println(l);
@@ -104,7 +93,7 @@ public class Case1 {
 					boolean doubleNested = true;
 					while (doubleNested) {
 					//need to get the list of employees from the repository layer
-					List<Travel> travel = tDAO.getSingleTravel();
+					List<Travel> travel = ts.getSingleTravel();
 					//enhanced for loop to print out the Employees one by one
 					for(Travel t : travel) {
 						System.out.println(t);
@@ -155,7 +144,7 @@ public class Case1 {
 					boolean doubleNested = true;
 					while (doubleNested) {
 					//need to get the list of employees from the repository layer
-					List<Food> food = fDAO.getSingleFood();
+					List<Food> food = fs.getSingleFood();
 					//enhanced for loop to print out the Employees one by one
 					for(Food f : food) {
 						System.out.println(f);
@@ -206,7 +195,7 @@ public class Case1 {
 					boolean doubleNested = true;
 					while (doubleNested) {
 					//need to get the list of employees from the repository layer
-					List<Miscellaneous> miscellaneous = mDAO.getSingleMiscellaneous();
+					List<Miscellaneous> miscellaneous = ms.getSingleMiscellaneous();
 					//enhanced for loop to print out the Employees one by one
 					for(Miscellaneous m : miscellaneous) {
 						System.out.println(m);

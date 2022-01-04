@@ -96,7 +96,7 @@ public class Menu_Employee {
 					System.out.println();
 					System.out.println();
 					Lodging newLodging = new Lodging(e_id, lodging_cost, lodging_info);
-					lServices.inputLodging(newLodging);		
+					lServices.submitLodging(newLodging);		
 					
 					System.out.println();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -170,7 +170,7 @@ public class Menu_Employee {
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println();
 					Travel newTravel = new Travel(e_id, travel_cost, travel_info);
-					tServices.inputTravel(newTravel);		
+					tServices.submitTravel(newTravel);		
 					
 					System.out.println();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -244,7 +244,7 @@ public class Menu_Employee {
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println();
 					Food newFood = new Food(e_id, food_cost, food_info);
-					fServices.inputFood(newFood);		
+					fServices.submitFood(newFood);		
 								
 					System.out.println();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -318,7 +318,7 @@ public class Menu_Employee {
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println();					
 					Miscellaneous newMiscellaneous = new Miscellaneous(e_id, misc_cost,  misc_info );
-					mServices.inputMiscellaneous(newMiscellaneous);		
+					mServices.submitMiscellaneous(newMiscellaneous);		
 					System.out.println();
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					System.out.println("~~~~~~~~~  Do you need to submit another request?  ~~~~~~~~~");

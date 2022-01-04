@@ -7,14 +7,11 @@ public class EmployeeService {
 
 	EmployeeDAO eDAO = new EmployeeDAO();//So that I can use the method sform the employeeDAO
 
-	public void inputEmployee(Employee newEmployee) {
-		
-		//Take in the employee object sent from the menu and send it to the employee dao to be inserted into the database 
-		
-		
-		//we need to call the DAO method that inserts the new Employee
+	public void getEmployees() {
+		eDAO.getEmployees();
+	}
+	public void submitEmployee(Employee newEmployee) {
 		eDAO.submitEmployee(newEmployee);
-		
 	}	
 
 }

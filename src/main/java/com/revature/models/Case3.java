@@ -2,11 +2,6 @@ package com.revature.models;
 
 import java.util.List;
 import java.util.Scanner;
-import com.revature.repositories.EmployeeDAO;
-import com.revature.repositories.FoodDAO;
-import com.revature.repositories.LodgingDAO;
-import com.revature.repositories.MiscellaneousDAO;
-import com.revature.repositories.TravelDAO;
 import com.revature.services.EmployeeService;
 import com.revature.services.FoodService;
 import com.revature.services.LodgingService;
@@ -17,12 +12,7 @@ public class Case3 {
 	
 	Scanner scan = new Scanner(System.in);
 	boolean displayMenu = true;
-	EmployeeDAO eDAO = new EmployeeDAO();
-	FoodDAO fDAO = new FoodDAO();
-	LodgingDAO lDAO = new LodgingDAO();
-	TravelDAO tDAO = new TravelDAO();
-	MiscellaneousDAO mDAO = new MiscellaneousDAO();
-	EmployeeService eServices = new EmployeeService();
+	EmployeeService es = new EmployeeService();
 	FoodService fs = new FoodService();
 	LodgingService ls = new LodgingService();
 	TravelService ts = new TravelService();
@@ -48,7 +38,7 @@ public class Case3 {
 			System.out.println("~~~~~~~~~~~  Lodging Requests for This Employee  ~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println();
-			List<Lodging> lodging= lDAO.getEmployeeLodging(e_id);
+			List<Lodging> lodging= ls.getEmployeeLodging(e_id);
 			for(Lodging l : lodging) {
 				System.out.println(l);}
 			System.out.println();
@@ -56,7 +46,7 @@ public class Case3 {
 			System.out.println("~~~~~~~~~~~  Travel Requests for This Employee  ~~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println();
-			List<Travel> travel = tDAO.getEmployeeTravel(e_id);
+			List<Travel> travel = ts.getEmployeeTravel(e_id);
 			for(Travel t : travel) {
 				System.out.println(t);}
 			System.out.println();
@@ -64,7 +54,7 @@ public class Case3 {
 			System.out.println("~~~~~~~~~~~~~  Food Requests for This Employee  ~~~~~~~~~~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println();
-			List<Food> food = fDAO.getEmployeeFood(e_id);
+			List<Food> food = fs.getEmployeeFood(e_id);
 			for(Food f : food) {
 				System.out.println(f);}
 			System.out.println();
@@ -72,7 +62,7 @@ public class Case3 {
 			System.out.println("~~~~~~~~  Miscellaneous Requests for This Employee  ~~~~~~~~");
 			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println();
-			List<Miscellaneous> misc = mDAO.getEmployeeMiscellaneous(e_id);
+			List<Miscellaneous> misc = ms.getEmployeeMiscellaneous(e_id);
 			for(Miscellaneous m : misc) {
 				System.out.println(m);}
 			System.out.println();

@@ -2,12 +2,6 @@ package com.revature.models;
 
 import java.util.List;
 import java.util.Scanner;
-
-import com.revature.repositories.EmployeeDAO;
-import com.revature.repositories.FoodDAO;
-import com.revature.repositories.LodgingDAO;
-import com.revature.repositories.MiscellaneousDAO;
-import com.revature.repositories.TravelDAO;
 import com.revature.services.EmployeeService;
 import com.revature.services.FoodService;
 import com.revature.services.LodgingService;
@@ -18,11 +12,6 @@ public class Case2 {
 	
 	Scanner scan = new Scanner(System.in);
 	boolean displayMenu = true;
-	EmployeeDAO eDAO = new EmployeeDAO();
-	FoodDAO fDAO = new FoodDAO();
-	LodgingDAO lDAO = new LodgingDAO();
-	TravelDAO tDAO = new TravelDAO();
-	MiscellaneousDAO mDAO = new MiscellaneousDAO();
 	EmployeeService eServices = new EmployeeService();
 	FoodService fs = new FoodService();
 	LodgingService ls = new LodgingService();
@@ -48,7 +37,7 @@ public void case2() {
 	
 		case "1": {
 			//need to get the list of employees from the repository layer
-			List<Lodging> lodging = lDAO.getLodging();
+			List<Lodging> lodging = ls.getLodging();
 			
 			//enhanced for loop to print out the Employees one by one
 			for(Lodging l : lodging) {
@@ -97,7 +86,7 @@ public void case2() {
 		}
 		case "2": {
 			//need to get the list of employees from the repository layer
-			List<Travel> travel = tDAO.getTravel();
+			List<Travel> travel = ts.getTravel();
 			
 			//enhanced for loop to print out the Employees one by one
 			for(Travel t : travel) {
@@ -146,7 +135,7 @@ public void case2() {
 		}
 		case "3": {
 			//need to get the list of employees from the repository layer
-			List<Food> food = fDAO.getFood();
+			List<Food> food = fs.getFood();
 			
 			//enhanced for loop to print out the Employees one by one
 			for(Food f : food) {
@@ -195,7 +184,7 @@ public void case2() {
 		}
 		case "4": {
 			//need to get the list of employees from the repository layer
-			List<Miscellaneous> miscellaneous = mDAO.getMiscellaneous();
+			List<Miscellaneous> miscellaneous = ms.getMiscellaneous();
 			
 			//enhanced for loop to print out the Employees one by one
 			for(Miscellaneous m : miscellaneous) {

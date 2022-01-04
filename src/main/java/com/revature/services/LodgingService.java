@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import java.util.List;
+
 import com.revature.models.Lodging;
 import com.revature.repositories.LodgingDAO;
 
@@ -7,18 +9,19 @@ public class LodgingService {
 	
 	LodgingDAO lDAO = new LodgingDAO();//So that I can use the method sform the employeeDAO
 
-	public void inputLodging(Lodging newLodging) {
-		
-		//Take in the employee object sent from the menu and send it to the employee dao to be inserted into the database 
-		
-		
-		//we need to call the DAO method that inserts the new Employee
+	public List<Lodging> getLodging() {
+		return lDAO.getLodging();
+	}
+	public List<Lodging> getSingleLodging() {
+		return lDAO.getSingleLodging();
+	}
+	public List<Lodging> getEmployeeLodging(int e_id) {
+		return lDAO.getEmployeeLodging(e_id);
+	}
+	public void submitLodging(Lodging newLodging) {
 		lDAO.submitLodging(newLodging);
-		
 	}	
 	public void updateLodging(int decision, int lodging_id) {
-		
 		lDAO.updateLodgingStatus(decision, lodging_id);
-		
 	}
 }

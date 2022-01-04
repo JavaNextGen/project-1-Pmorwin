@@ -92,7 +92,7 @@ public class Case4 {
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println();
 		Employee newEmployee = new Employee(company_email, f_name, l_name, employee_username, employee_password, Integer.parseInt(role_id));
-		eServices.inputEmployee(newEmployee);
+		eServices.submitEmployee(newEmployee);
 		System.out.println();
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println("~~~~~~~~~~~~~~~  Do you need anything else?  ~~~~~~~~~~~~~~~");
