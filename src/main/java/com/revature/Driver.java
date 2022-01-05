@@ -65,11 +65,11 @@ public class Driver {
 		app.get("/travel_status", tc.getSingleTravelHandler);
 		app.get("/food_status", fc.getSingleFoodHandler);
 		app.get("/miscellaneous_status", mc.getSingleMiscellaneousHandler);
-		//System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~(Get Reimbursement Requests by Employee ID)");
-		app.get("employee/{e_id}", ec.getEmployeeHandler);
-	
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~(Get Reimbursement Requests by Employee ID)");
+		app.get("/employee/{e_id}", ec.getEmployeeHandler);
+
 		
-	
+		
 		app.get("/lodging/{e_id}", lc.getEmployeeLodgingHandler);
 		app.get("/travel/{e_id}", tc.getEmployeeTravelHandler);
 		app.get("/food/{e_id}", fc.getEmployeeFoodHandler);

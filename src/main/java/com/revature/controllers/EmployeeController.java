@@ -29,96 +29,94 @@ public class EmployeeController {
 		//Gets the Employee's Food Requests
 		if(ctx.req.getSession(false) != null) { //checks if the session exists
 					
-					int e_id = Integer.parseInt(ctx.pathParam("e_id"));
+			int e_id = Integer.parseInt(ctx.pathParam("e_id"));
 					
+			//Lodging
+			List<Lodging> Lodging = ls.getEmployeeLodging(e_id);
+			Gson lgson = new Gson();
+			String JSONLodgings = lgson.toJson(Lodging);
+			
+			//Travel
+			List<Travel> Travel = ts.getTravel();
+			Gson tgson = new Gson();
+			String JSONTravel = tgson.toJson(Travel);
+			
+			//Food
+			List<Food> Food = fs.getEmployeeFood(e_id);
+			Gson fgson = new Gson();
+			String JSONFoods = fgson.toJson(Food);
 					
-					//Food
-					List<Food> Food = fs.getEmployeeFood(e_id);
-					Gson fgson = new Gson();
-					String JSONFoods = fgson.toJson(Food);
+			//Miscellaneous
+			List<Miscellaneous> Miscellaneous = ms.getEmployeeMiscellaneous(e_id);
+			Gson mgson = new Gson();
+			String JSONMiscellaneouss = mgson.toJson(Miscellaneous);
+				
+
+			String JSONCONCAT = (JSONLodgings + JSONTravel + JSONFoods + JSONMiscellaneouss );
+			System.out.println(JSONCONCAT);
+			ctx.result(JSONCONCAT);
+			ctx.status(200);
 					
-					//Lodging
-					List<Lodging> Lodging = ls.getEmployeeLodging(e_id);
-					Gson lgson = new Gson();
-					String JSONLodgings = lgson.toJson(Lodging);
-					
-					//Miscellaneous
-					List<Miscellaneous> Miscellaneous = ms.getEmployeeMiscellaneous(e_id);
-					Gson mgson = new Gson();
-					String JSONMiscellaneouss = mgson.toJson(Miscellaneous);
-					
-					//Travel
-					List<Travel> Travel = ts.getTravel();
-					Gson gson = new Gson();
-					String JSONTravel = gson.toJson(Travel);
-					
-					
-//					ctx.result(JSONTravel);
-//					ctx.result(JSONMiscellaneouss);
-//					ctx.result(JSONLodgings);
-					ctx.result(JSONFoods + JSONTravel + JSONMiscellaneouss + JSONLodgings);
-					ctx.status(200);
-					
-				}
-				else {
-					ctx.result("There was an error while fetching Food Requests");
-					ctx.status(404);
-				}
+		}
+		else {
+			ctx.result("There was an error while fetching this Employees Requests");
+			ctx.status(404);
+		}
 		//Gets the Employee's Lodging Requests
-		if(ctx.req.getSession() != null) { //checks if the session exists
-					
-					int e_id = Integer.parseInt(ctx.pathParam("e_id"));
-					
-					List<Lodging> Lodging = ls.getEmployeeLodging(e_id);
-					
-					Gson gson = new Gson();
-					
-					String JSONLodgings = gson.toJson(Lodging);
-					
-					ctx.result(JSONLodgings);
-					ctx.status(200);
-					
-				}
-				else {
-					ctx.result("There was an error while fetching Lodging Requests");
-					ctx.status(404);
-				}
-		//Gets the Employee's Miscellaneous Requests
-		if(ctx.req.getSession() != null) { //checks if the session exists
-					
-					int e_id = Integer.parseInt(ctx.pathParam("e_id"));
-					
-					List<Miscellaneous> Miscellaneous = ms.getEmployeeMiscellaneous(e_id);
-					
-					Gson gson = new Gson();
-					
-					String JSONMiscellaneouss = gson.toJson(Miscellaneous);
-					
-					ctx.result(JSONMiscellaneouss);
-					ctx.status(200);
-					
-				}
-				else {
-					ctx.result("There was an error while fetching Miscellaneous Requests");
-					ctx.status(404);
-				}
-		//Gets the Employee's Travel Requests
-		if(ctx.req.getSession() != null) { //checks if the session exists
-					
-					List<Travel> Travel = ts.getTravel();
-					
-					Gson gson = new Gson();
-					
-					String JSONTravel = gson.toJson(Travel);
-					
-					ctx.result(JSONTravel);
-					ctx.status(200);
-					
-				}
-				else {
-					ctx.result("There was an error while fetching Travel Requests");
-					ctx.status(404);
-				}
+//		if(ctx.req.getSession() != null) { //checks if the session exists
+//					
+//					int e_id = Integer.parseInt(ctx.pathParam("e_id"));
+//					
+//					List<Lodging> Lodging = ls.getEmployeeLodging(e_id);
+//					
+//					Gson gson = new Gson();
+//					
+//					String JSONLodgings = gson.toJson(Lodging);
+//					
+//					ctx.result(JSONLodgings);
+//					ctx.status(200);
+//					
+//		}
+//		else {
+//			ctx.result("There was an error while fetching Lodging Requests");
+//			ctx.status(404);
+//		}
+//		//Gets the Employee's Miscellaneous Requests
+//		if(ctx.req.getSession() != null) { //checks if the session exists
+//					
+//			int e_id = Integer.parseInt(ctx.pathParam("e_id"));
+//					
+//			List<Miscellaneous> Miscellaneous = ms.getEmployeeMiscellaneous(e_id);
+//					
+//			Gson gson = new Gson();
+//					
+//			String JSONMiscellaneouss = gson.toJson(Miscellaneous);
+//				
+//			ctx.result(JSONMiscellaneouss);
+//			ctx.status(200);
+//					
+//		}
+//		else {
+//			ctx.result("There was an error while fetching Miscellaneous Requests");
+//			ctx.status(404);
+//		}
+//		//Gets the Employee's Travel Requests
+//		if(ctx.req.getSession() != null) { //checks if the session exists
+//					
+//			List<Travel> Travel = ts.getTravel();
+//					
+//			Gson gson = new Gson();
+//					
+//			String JSONTravel = gson.toJson(Travel);
+//					
+//			ctx.result(JSONTravel);
+//			ctx.status(200);
+//					
+//		}
+//		else {
+//			ctx.result("There was an error while fetching Travel Requests");
+//			ctx.status(404);
+//		}
 	
 	};
 	public Handler submitEmployeeHandler = (ctx) -> {
