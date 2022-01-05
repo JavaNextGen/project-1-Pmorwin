@@ -10,7 +10,7 @@ public class Miscellaneous {
 	private int misc_id;
 	private String misc_cost;
 	private String misc_info;
-
+	private int status;
 
 	
 	
@@ -30,6 +30,7 @@ public class Miscellaneous {
 		this.misc_info = misc_info;
 	}
 
+	
 
 	public Miscellaneous(int e_id, int misc_id, String misc_cost, String misc_info) {
 		super();
@@ -40,6 +41,16 @@ public class Miscellaneous {
 	}
 
 
+	public Miscellaneous(int e_id, int misc_id, String misc_cost, String misc_info, int status) {
+		super();
+		this.e_id = e_id;
+		this.misc_id = misc_id;
+		this.misc_cost = misc_cost;
+		this.misc_info = misc_info;
+		this.status = status;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Miscellaneous [e_id=" + e_id + ", misc_id=" + misc_id + ", misc_cost=" + misc_cost + ", misc_info="
@@ -47,6 +58,14 @@ public class Miscellaneous {
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
+	public int getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	
 	public int getE_id() {
 		return e_id;

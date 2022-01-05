@@ -10,6 +10,7 @@ public class Food {
 	private int food_id;
 	private String food_cost;
 	private String food_info;
+	private int status;
 
 
 	
@@ -39,18 +40,38 @@ public class Food {
 		this.food_info = food_info;
 	}
 
+	
+
+	public Food(int e_id, int food_id, String food_cost, String food_info, int status) {
+		super();
+		this.e_id = e_id;
+		this.food_id = food_id;
+		this.food_cost = food_cost;
+		this.food_info = food_info;
+		this.status = status;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Food [e_id=" + e_id + ", food_id=" + food_id + ", food_cost=" + food_cost + ", food_info=" + food_info
-				+ "]";
+				+ ", status=" + status + "]";
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
+	
+	public int getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 	public int getE_id() {
 		return e_id;
 	}
-
 
 	public void setE_id(int e_id) {
 		this.e_id = e_id;
@@ -86,7 +107,7 @@ public class Food {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(e_id, food_cost, food_id, food_info);
+		return Objects.hash(e_id, food_cost, food_id, food_info, status);
 	}
 
 	@Override
@@ -99,6 +120,6 @@ public class Food {
 			return false;
 		Food other = (Food) obj;
 		return e_id == other.e_id && Objects.equals(food_cost, other.food_cost) && food_id == other.food_id
-				&& Objects.equals(food_info, other.food_info);
+				&& Objects.equals(food_info, other.food_info) && status == other.status;
 	}
 }

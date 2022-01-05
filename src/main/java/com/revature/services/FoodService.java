@@ -20,8 +20,12 @@ public class FoodService {
 	public void submitFood(Food newFood) {
 		fDAO.submitFood(newFood);	
 	}	
+	public void updateFoodStatus(Food Food) {
+		fDAO.updateFoodStatus(Food);	
+	}
 	public void updateFoodStatus(int decision, int food_id) {
 		fDAO.updateFoodStatus(decision, food_id);
+		
 	}
 
 }

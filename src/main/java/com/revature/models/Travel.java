@@ -10,7 +10,7 @@ public class Travel {
 	private int travel_id;
 	private String travel_cost;
 	private String travel_info;
-
+	private int status;
 
 	
 	
@@ -33,13 +33,23 @@ public class Travel {
 	}
 
 
-
 	public Travel(int e_id, int travel_id, String travel_cost, String travel_info) {
 		super();
 		this.e_id = e_id;
 		this.travel_id = travel_id;
 		this.travel_cost = travel_cost;
 		this.travel_info = travel_info;
+	}
+
+
+
+	public Travel(int e_id, int travel_id, String travel_cost, String travel_info, int status) {
+		super();
+		this.e_id = e_id;
+		this.travel_id = travel_id;
+		this.travel_cost = travel_cost;
+		this.travel_info = travel_info;
+		this.status = status;
 	}
 
 
@@ -53,6 +63,15 @@ public class Travel {
 
 
 	//getters and setters so that we can access and change the private variables up above 
+	public int getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 	public String getTravel_info() {
 		return travel_info;
 	}

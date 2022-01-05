@@ -10,7 +10,7 @@ public class Lodging {
 	private int lodging_id;
 	private String lodging_cost;
 	private String lodging_info;
-
+	private int status;
 	
 	//boilerplate code below------------------------------
 	
@@ -40,6 +40,16 @@ public class Lodging {
 
 
 
+	public Lodging(int e_id, int lodging_id, String lodging_cost, String lodging_info, int status) {
+		super();
+		this.e_id = e_id;
+		this.lodging_id = lodging_id;
+		this.lodging_cost = lodging_cost;
+		this.lodging_info = lodging_info;
+		this.status = status;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Lodging [e_id=" + e_id + ", lodging_id=" + lodging_id + ", lodging_cost=" + lodging_cost
@@ -47,6 +57,15 @@ public class Lodging {
 	}
 
 	//getters and setters so that we can access and change the private variables up above 
+	public int getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 	public int getE_id() {
 		return e_id;
 	}

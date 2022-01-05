@@ -21,7 +21,11 @@ public class LodgingService {
 	public void submitLodging(Lodging newLodging) {
 		lDAO.submitLodging(newLodging);
 	}	
-	public void updateLodging(int decision, int lodging_id) {
+	public void updateLodgingStatus(Lodging Lodging) {
+		lDAO.updateLodgingStatus(Lodging);
+	}
+	public void updateLodgingStatus(int decision, int lodging_id) {
 		lDAO.updateLodgingStatus(decision, lodging_id);
+		
 	}
 }

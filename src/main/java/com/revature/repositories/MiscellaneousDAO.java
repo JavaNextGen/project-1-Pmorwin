@@ -44,7 +44,8 @@ public class MiscellaneousDAO {
 						rs.getInt("employee_id"),
 						rs.getInt("misc_id"),
 						rs.getString("misc_cost"),
-						rs.getString("misc_info")				
+						rs.getString("misc_info"),
+						rs.getInt("status")
 						);
 				//and populate the ArrayList with each new Employee Object				
 				miscList.add(m);//e is the new Employee object we created above
@@ -199,8 +200,29 @@ public class MiscellaneousDAO {
 			e.printStackTrace();
 		}
 	}
-	public void updateMiscStatus(int decision, int misc_id) {
+	public void updateMiscStatus(Miscellaneous Misc) {
 		
+		try(Connection conn = ConnectionFactory.getConnection()){
+			
+			String misc = "UPDATE misc SET status = ? WHERE misc_id = ?;";
+			
+			PreparedStatement ps = conn.prepareStatement(misc);
+			
+			
+			ps.setInt(1, Misc.getStatus());
+			ps.setInt(2, Misc.getMisc_id());
+			
+			ps.executeUpdate();
+			
+			System.out.println("The status of this request has been set to: " + Misc.getStatus());
+			
+		} catch (SQLException e) {
+			System.out.println("Something went wrong during the update");
+			e.printStackTrace();
+		}
+}
+	public void updateMiscStatus(int decision, int misc_id) {
+
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
 			String misc = "UPDATE misc SET status = ? WHERE misc_id = ?;";
@@ -219,7 +241,8 @@ public class MiscellaneousDAO {
 			System.out.println("Something went wrong during the update");
 			e.printStackTrace();
 		}
-}
+		
+	}
 
 
 }

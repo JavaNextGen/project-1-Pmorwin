@@ -56,13 +56,13 @@ public class Case1 {
 							case "1":{
 								int decision = 1;
 								int lodging_id = lodging.get(0).getLodging_id();
-								ls.updateLodging(decision, lodging_id);
+								ls.updateLodgingStatus(decision, lodging_id);
 								break;
 							}
 							case "2":{
 								int decision = 2;
 								int lodging_id = lodging.get(0).getLodging_id();
-								ls.updateLodging(decision, lodging_id);
+								ls.updateLodgingStatus(decision, lodging_id);
 								break;
 							}
 							case "3":{
@@ -107,13 +107,13 @@ public class Case1 {
 						case "1":{
 							int decision = 1;
 							int travel_id = travel.get(0).getTravel_id();
-							ls.updateLodging(decision, travel_id);
+							ts.updateTravelStatus(decision, travel_id);
 							break;
 						}
 						case "2":{
 							int decision = 2;
 							int travel_id = travel.get(0).getTravel_id();
-							ls.updateLodging(decision, travel_id);
+							ts.updateTravelStatus(decision, travel_id);
 							break;
 						}
 						case "3":{
@@ -158,13 +158,13 @@ public class Case1 {
 						case "1":{
 							int decision = 1;
 							int food_id = food.get(0).getFood_id();
-							ls.updateLodging(decision, food_id);
+							fs.updateFoodStatus(decision, food_id);
 							break;
 						}
 						case "2":{
 							int decision = 2;
 							int food_id = food.get(0).getFood_id();
-							ls.updateLodging(decision, food_id);
+							fs.updateFoodStatus(decision, food_id);
 							break;
 						}
 						case "3":{
@@ -209,13 +209,13 @@ public class Case1 {
 						case "1":{
 							int decision = 1;
 							int misc_id = miscellaneous.get(0).getMisc_id();
-							ls.updateLodging(decision, misc_id);
+							ms.updateMiscellaneousStatus(decision, misc_id);
 							break;
 						}
 						case "2":{
 							int decision = 2;
 							int misc_id = miscellaneous.get(0).getMisc_id();
-							ls.updateLodging(decision, misc_id);
+							ms.updateMiscellaneousStatus(decision, misc_id);
 							break;
 						}
 						case "3":{

@@ -44,7 +44,8 @@ public class LodgingDAO {
 							rs.getInt("employee_id"),
 							rs.getInt("lodging_id"),
 							rs.getString("lodging_cost"),
-							rs.getString("lodging_info")
+							rs.getString("lodging_info"),
+							rs.getInt("status")
 												
 							);
 					//and populate the ArrayList with each new Lodging Object				
@@ -207,7 +208,7 @@ public class LodgingDAO {
 			e.printStackTrace();
 		}
 	}
-	public void updateLodgingStatus(int decision, int lodging_id) {
+	public void updateLodgingStatus(Lodging Lodging) {
 			
 			try(Connection conn = ConnectionFactory.getConnection()){
 				
@@ -216,18 +217,40 @@ public class LodgingDAO {
 				PreparedStatement ps = conn.prepareStatement(lodging);
 				
 				
-				ps.setInt(1, decision);
-				ps.setInt(2, lodging_id);
+				ps.setInt(1, Lodging.getStatus());
+				ps.setInt(2, Lodging.getLodging_id());
 			
 				
 				ps.executeUpdate();
 				
-				System.out.println("The status of this request has been set to: " + decision);
+				System.out.println("The status of this request has been set to: " + Lodging.getStatus());
 				
 			} catch (SQLException e) {
 				System.out.println("Something went wrong during the update");
 				e.printStackTrace();
 			}
+	}
+	public void updateLodgingStatus(int decision, int lodging_id) {
+		try(Connection conn = ConnectionFactory.getConnection()){
+			
+			String lodging = "UPDATE lodging SET status = ? WHERE lodging_id = ?;";
+			
+			PreparedStatement ps = conn.prepareStatement(lodging);
+			
+			
+			ps.setInt(1, decision);
+			ps.setInt(2, lodging_id);
+		
+			
+			ps.executeUpdate();
+			
+			System.out.println("The status of this request has been set to: " + decision);
+			
+		} catch (SQLException e) {
+			System.out.println("Something went wrong during the update");
+			e.printStackTrace();
+		}
+		
 	}
 	
 

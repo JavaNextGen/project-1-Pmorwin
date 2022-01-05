@@ -42,7 +42,8 @@ public class FoodDAO {
 						rs.getInt("employee_id"),
 						rs.getInt("food_id"),
 						rs.getString("food_cost"),
-						rs.getString("food_info")							
+						rs.getString("food_info"),
+						rs.getInt("status")
 						);
 				//and populate the ArrayList with each new Employee Object				
 				foodList.add(f);//e is the new Employee object we created above
@@ -196,26 +197,46 @@ public class FoodDAO {
 				e.printStackTrace();
 			}
 		}    
-	public void updateFoodStatus(int decision, int food_id) {
-		
-		try(Connection conn = ConnectionFactory.getConnection()){
+	public void updateFoodStatus(Food Food) {
+	try(Connection conn = ConnectionFactory.getConnection()){
 			
 			String food = "UPDATE food SET status = ? WHERE food_id = ?;";
 			
 			PreparedStatement ps = conn.prepareStatement(food);
 			
 			
-			ps.setInt(1, decision);
-			ps.setInt(2, food_id);
+			ps.setInt(1, Food.getStatus());
+			ps.setInt(2, Food.getE_id());
 			
 			ps.executeUpdate();
 			
-			System.out.println("The status of this request has been set to: " + decision);
+			System.out.println("The status of this request has been set to: " + Food.getStatus());
 			
 		} catch (SQLException e) {
 			System.out.println("Something went wrong during the update");
 			e.printStackTrace();
 		}
+		
 	}
-	    
+	public void updateFoodStatus(int decision, int food_id) {
+			
+			try(Connection conn = ConnectionFactory.getConnection()){
+				
+				String food = "UPDATE food SET status = ? WHERE food_id = ?;";
+				
+				PreparedStatement ps = conn.prepareStatement(food);
+				
+				
+				ps.setInt(1, decision);
+				ps.setInt(2, food_id);
+				
+				ps.executeUpdate();
+				
+				System.out.println("The status of this request has been set to: " + decision);
+				
+			} catch (SQLException e) {
+				System.out.println("Something went wrong during the update");
+				e.printStackTrace();
+			}
+		}	    
 }

@@ -42,7 +42,8 @@ public class TravelDAO {
 						rs.getInt("employee_id"),
 						rs.getInt("travel_id"),
 						rs.getString("travel_cost"),
-						rs.getString("travel_info")							
+						rs.getString("travel_info"),	
+						rs.getInt("status")
 						);
 				//and populate the ArrayList with each new Employee Object				
 				travelList.add(t);//e is the new Employee object we created above
@@ -198,9 +199,29 @@ public class TravelDAO {
 			e.printStackTrace();
 		}
 	}
-	public void updateTravelStatus(int decision, int travel_id) {
+	public void updateTravelStatus(Travel Travel) {
 		
 		try(Connection conn = ConnectionFactory.getConnection()){
+			
+			String travel = "UPDATE travel SET status = ? WHERE travel_id = ?;";
+			
+			PreparedStatement ps = conn.prepareStatement(travel);
+			
+			
+			ps.setInt(1, Travel.getStatus());
+			ps.setInt(2, Travel.getTravel_id());
+			
+			ps.executeUpdate();
+			
+			System.out.println("The status of this request has been set to: " + Travel.getStatus());
+			
+		} catch (SQLException e) {
+			System.out.println("Something went wrong during the update");
+			e.printStackTrace();
+		}
+	}
+	public void updateTravelStatus(int decision, int travel_id) {
+try(Connection conn = ConnectionFactory.getConnection()){
 			
 			String travel = "UPDATE travel SET status = ? WHERE travel_id = ?;";
 			
@@ -218,6 +239,7 @@ public class TravelDAO {
 			System.out.println("Something went wrong during the update");
 			e.printStackTrace();
 		}
+		
 	}
 
 }

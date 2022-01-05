@@ -20,8 +20,12 @@ public class TravelService {
 	public void submitTravel(Travel newTravel) {
 		tDAO.submitTravel(newTravel);
 	}
-	public void updateTravel(int decision, int travel_id) {
+	public void updateTravelStatus(Travel Travel) {
+		tDAO.updateTravelStatus(Travel);
+	}
+	public void updateTravelStatus(int decision, int travel_id) {
 		tDAO.updateTravelStatus(decision, travel_id);
+		
 	}
 	
 }
