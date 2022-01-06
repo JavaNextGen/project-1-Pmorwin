@@ -30,7 +30,7 @@ public class Case4 {
 	Menu_Employee e_menu = new Menu_Employee();
 	
 	
-	public void case4(){
+	public void case4() throws Exception{
 		
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println("~~~~~~~~~~~~  Welcome to Employee Creatation!  ~~~~~~~~~~~~~");

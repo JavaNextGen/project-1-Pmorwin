@@ -65,7 +65,7 @@ public class EmployeeDAO {
 		
 		
 	}    	
-	public void submitEmployee(Employee newEmployee) {//This is INSERT functinoality
+	public int submitEmployee(Employee newEmployee) {//This is INSERT functinoality
 		
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
@@ -90,10 +90,12 @@ public class EmployeeDAO {
 			
 			//send confirmation to the console if successful
 			System.out.println("Employee Information Sucessfully Inputted");
+			return 1;
 		}
 		catch(SQLException e) {
 			System.out.println("There was an error while attempting to input Employee information");
 			e.printStackTrace();
+			return 0;
 		}
 	}
 	

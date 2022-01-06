@@ -8,24 +8,50 @@ import com.revature.repositories.FoodDAO;
 public class FoodService {
 	FoodDAO fDAO = new FoodDAO();//So that I can use the method sform the employeeDAO
 
-	public List<Food> getFood() {
-		return fDAO.getFood();
+	public List<Food> getFood() throws Exception {
+		List<Food> result = fDAO.getFood();
+		if(result.get(0).getE_id() != 0) {
+			return result;
+		}
+		else {
+			throw new Exception();
+		}
 	}
-	public List<Food> getSingleFood() {
-		return fDAO.getSingleFood();
+	public List<Food> getSingleFood() throws Exception {
+		List<Food> result = fDAO.getSingleFood();
+		if(result.get(0).getE_id() != 0) {
+			return result;
+		}
+		else {
+			throw new Exception();
+		}
 	}
-	public List<Food> getEmployeeFood(int e_id) {
-		return fDAO.getEmployeeFood(e_id);
+	public List<Food> getEmployeeFood(int e_id) throws Exception {
+		List<Food> result = fDAO.getEmployeeFood(e_id);
+		if(result.get(0).getE_id() != 0) {
+			return result;
+		}
+		else {
+			throw new Exception();
+		}
 	}
-	public void submitFood(Food newFood) {
-		fDAO.submitFood(newFood);	
+	public void submitFood(Food newFood) throws Exception {
+		int result = fDAO.submitFood(newFood);	
+		if(result == 0) {
+			throw new Exception();
+		}
 	}	
-	public void updateFoodStatus(Food Food) {
-		fDAO.updateFoodStatus(Food);	
+	public void updateFoodStatus(Food Food) throws Exception {
+		int result = fDAO.updateFoodStatus(Food);
+		if(result == 0) {
+			throw new Exception();
+		}
 	}
-	public void updateFoodStatus(int decision, int food_id) {
-		fDAO.updateFoodStatus(decision, food_id);
-		
+	public void updateFoodStatus(int decision, int food_id) throws Exception {
+		int result = fDAO.updateFoodStatus(decision, food_id);
+		if(result == 0) {
+			throw new Exception();
+		}
 	}
 
 }
