@@ -9,23 +9,49 @@ public class LodgingService {
 	
 	LodgingDAO lDAO = new LodgingDAO();//So that I can use the method sform the employeeDAO
 
-	public List<Lodging> getLodging() {
-		return lDAO.getLodging();
+	public List<Lodging> getLodging() throws Exception {
+		List<Lodging> result = lDAO.getLodging();
+		if(result.get(0).getE_id() != 0) {
+			return result;
+		}
+		else {
+			throw new Exception();
+		}
 	}
-	public List<Lodging> getSingleLodging() {
-		return lDAO.getSingleLodging();
+	public List<Lodging> getSingleLodging() throws Exception {
+		List<Lodging> result = lDAO.getSingleLodging();
+		if(result.get(0).getE_id() != 0) {
+			return result;
+		}
+		else {
+			throw new Exception();
+		}
 	}
-	public List<Lodging> getEmployeeLodging(int e_id) {
-		return lDAO.getEmployeeLodging(e_id);
+	public List<Lodging> getEmployeeLodging(int e_id) throws Exception {
+		List<Lodging> result = lDAO.getEmployeeLodging(e_id);
+		if(result.get(0).getE_id() != 0) {
+			return result;
+		}
+		else {
+			throw new Exception();
+		}
 	}
-	public void submitLodging(Lodging newLodging) {
-		lDAO.submitLodging(newLodging);
+	public void submitLodging(Lodging newLodging) throws Exception {
+		int result = lDAO.submitLodging(newLodging);
+		if(result == 0) {
+			throw new Exception();
+		}
 	}	
-	public void updateLodgingStatus(Lodging Lodging) {
-		lDAO.updateLodgingStatus(Lodging);
+	public void updateLodgingStatus(Lodging Lodging) throws Exception {
+		int result = lDAO.updateLodgingStatus(Lodging);
+		if(result == 0) {
+			throw new Exception();
+		}
 	}
-	public void updateLodgingStatus(int decision, int lodging_id) {
-		lDAO.updateLodgingStatus(decision, lodging_id);
-		
+	public void updateLodgingStatus(int decision, int lodging_id) throws Exception {
+		int result = lDAO.updateLodgingStatus(decision, lodging_id);
+		if(result == 0) {
+			throw new Exception();
+		}
 	}
 }

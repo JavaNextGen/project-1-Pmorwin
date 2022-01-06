@@ -20,16 +20,8 @@ import com.revature.repositories.MiscellaneousDAO;
 @SuppressWarnings("unused")
 public class Menu_Manager{
 
-	EmployeeDAO eDAO = new EmployeeDAO();
-	FoodDAO fDAO = new FoodDAO();
-	LodgingDAO lDAO = new LodgingDAO();
-	TravelDAO tDAO = new TravelDAO();
-	MiscellaneousDAO mDAO = new MiscellaneousDAO();
-	EmployeeService eServices = new EmployeeService();
-	FoodService fs = new FoodService();
-	LodgingService ls = new LodgingService();
-	TravelService ts = new TravelService();
-	MiscellaneousService ms = new MiscellaneousService();
+
+	
 	Menu_Employee e_menu = new Menu_Employee();
 	Scanner scan = new Scanner(System.in);
 	Case1 c1 = new Case1();
@@ -37,7 +29,7 @@ public class Menu_Manager{
 	Case3 c3 = new Case3();
 	Case4 c4 = new Case4();
 	
-	public void displayMenu() {
+	public void displayMenu() throws Exception {
 		
 		boolean displayMenu = true;//We are going to use this to toggle whether the menu continues after user input
 		while(displayMenu) {

@@ -19,7 +19,7 @@ public class Case2 {
 	MiscellaneousService ms = new MiscellaneousService();
 	Menu_Employee e_menu = new Menu_Employee();
 
-public void case2() {
+public void case2() throws Exception {
 	System.out.println();
 	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	System.out.println("~~~~  Which category of reinbursement requests would you like to view?  ~~~~");

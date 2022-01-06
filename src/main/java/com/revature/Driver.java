@@ -1,8 +1,8 @@
 package com.revature;
 
+
 import java.sql.Connection;
 import java.sql.SQLException;
-
 import com.revature.controllers.EmployeeController;
 import com.revature.controllers.FoodController;
 import com.revature.controllers.LodgingController;
@@ -49,11 +49,11 @@ public class Driver {
 		
 		Javalin app = Javalin.create(
 				config -> {
-					config.enableCorsForAllOrigins(); // allows the server to process JS requests from anywhere
+					config.enableCorsForAllOrigins(); // allows the server to process JS requests from anywhere	
 				}
 			).start(3000);
-		
-		
+	
+		app.get("/", ctx -> ctx.req.getSession());
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(Get Requests)");
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(Get Reimbursement Requests)");
 		app.get("/lodging", lc.getLodgingHandler);
@@ -101,4 +101,5 @@ public class Driver {
 	
 	
 	}
+
 }

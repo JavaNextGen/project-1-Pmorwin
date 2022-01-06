@@ -177,7 +177,7 @@ public class LodgingDAO {
 		
 		
 	}
-	public void submitLodging(Lodging newLodging) {//This is INSERT functinoality
+	public int submitLodging(Lodging newLodging) {//This is INSERT functionality
 		
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
@@ -202,13 +202,14 @@ public class LodgingDAO {
 			
 			//send confirmation to the console if successful
 			System.out.println("Lodging Information Sucessfully Inputted");	
+			return 1;
 		}
 		catch(SQLException e) {
 			System.out.println("There was an error while attempting to input Lodging information");
-			e.printStackTrace();
+			return 0;
 		}
 	}
-	public void updateLodgingStatus(Lodging Lodging) {
+	public int updateLodgingStatus(Lodging Lodging) {
 			
 			try(Connection conn = ConnectionFactory.getConnection()){
 				
@@ -224,13 +225,14 @@ public class LodgingDAO {
 				ps.executeUpdate();
 				
 				System.out.println("The status of this request has been set to: " + Lodging.getStatus());
-				
+				return 1;
 			} catch (SQLException e) {
 				System.out.println("Something went wrong during the update");
 				e.printStackTrace();
+				return 0;
 			}
 	}
-	public void updateLodgingStatus(int decision, int lodging_id) {
+	public int updateLodgingStatus(int decision, int lodging_id) {
 		try(Connection conn = ConnectionFactory.getConnection()){
 			
 			String lodging = "UPDATE lodging SET status = ? WHERE lodging_id = ?;";
@@ -245,10 +247,10 @@ public class LodgingDAO {
 			ps.executeUpdate();
 			
 			System.out.println("The status of this request has been set to: " + decision);
-			
+			return 1;
 		} catch (SQLException e) {
 			System.out.println("Something went wrong during the update");
-			e.printStackTrace();
+			return 0;
 		}
 		
 	}

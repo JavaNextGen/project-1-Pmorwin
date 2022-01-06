@@ -16,7 +16,7 @@ public class Menu_Employee {
 
 	
 	//All of the menu display optinos and control flow are contained within this method
-	public void displayMenu() {
+	public void displayMenu() throws Exception {
 		
 		boolean displayMenu = true;//We are going to use this to toggle whether the menu continues after user input
 		

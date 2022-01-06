@@ -19,7 +19,7 @@ public class Case1 {
 	MiscellaneousService ms = new MiscellaneousService();
 	Menu_Employee e_menu = new Menu_Employee();
 
-	public void case1() {
+	public void case1() throws Exception {
 		
 		boolean nestedWhile = true;
 		while (nestedWhile) {

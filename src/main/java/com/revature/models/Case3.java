@@ -19,7 +19,7 @@ public class Case3 {
 	MiscellaneousService ms = new MiscellaneousService();
 	Menu_Employee e_menu = new Menu_Employee();
 
-	public void case3() {
+	public void case3() throws Exception {
 		boolean loopCase3 = true;
 		while(loopCase3) {
 			System.out.println();
