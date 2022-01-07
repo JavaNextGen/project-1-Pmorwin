@@ -21,7 +21,7 @@ public class EmployeeController {
 	MiscellaneousService ms = new MiscellaneousService();
 	TravelService ts = new TravelService();
 	
-	public Handler getEmployeeRequestHandler = (ctx) -> {
+	public Handler getEmployeeRequestsHandler = (ctx) -> {
 		if(ctx.req.getSession(false) != null) {
 			try { 
 				int e_id = Integer.parseInt(ctx.pathParam("e_id"));		

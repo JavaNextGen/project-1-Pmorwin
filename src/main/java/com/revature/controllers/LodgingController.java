@@ -1,7 +1,6 @@
 package com.revature.controllers;
 
 import java.util.List;
-
 import com.google.gson.Gson;
 import com.revature.models.Lodging;
 import com.revature.services.LodgingService;
@@ -26,7 +25,7 @@ public class LodgingController {
 		}
 		else {
 			ctx.result("Unauthorized User");
-			ctx.status(403);	
+			ctx.status(401);	
 		}	
 	};
 	public Handler getSingleLodgingHandler = ctx ->{
@@ -45,7 +44,7 @@ public class LodgingController {
 		}
 		else {
 			ctx.result("Unauthorized User");
-			ctx.status(403);	
+			ctx.status(401);	
 		}	
 	};
 	public Handler getEmployeeLodgingHandler = ctx -> {
@@ -65,7 +64,7 @@ public class LodgingController {
 		}
 		else {
 			ctx.result("Unauthorized User");
-			ctx.status(403);	
+			ctx.status(401);	
 		}	
 	};
 	public Handler submitLodgingHandler = (ctx) -> {
@@ -85,7 +84,7 @@ public class LodgingController {
 		}
 		else {
 			ctx.result("Unauthorized User");
-			ctx.status(403);	
+			ctx.status(401);	
 		}	
 	};
 	public Handler updateLodgingStatusHandler = ctx ->{
@@ -105,7 +104,7 @@ public class LodgingController {
 		}
 		else {
 			ctx.result("Unauthorized User");
-			ctx.status(403);	
+			ctx.status(401);	
 		}	
 	};
 }

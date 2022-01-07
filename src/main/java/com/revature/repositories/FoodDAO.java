@@ -107,7 +107,7 @@ public class FoodDAO {
 			String food = "UPDATE food SET status = ? WHERE food_id = ?;";
 			PreparedStatement ps = conn.prepareStatement(food);
 			ps.setInt(1, Food.getStatus());
-			ps.setInt(2, Food.getE_id());
+			ps.setInt(2, Food.getFood_id());
 			ps.executeUpdate();
 			System.out.println("The status of this request has been set to: " + Food.getStatus());
 			return 1;

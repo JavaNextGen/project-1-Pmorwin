@@ -66,7 +66,7 @@ public class Driver {
 		app.get("/food_status", fc.getSingleFoodHandler);
 		app.get("/miscellaneous_status", mc.getSingleMiscellaneousHandler);
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~(Get Reimbursement Requests by Employee ID)");
-		app.get("/employee/{e_id}", ec.getEmployeeRequestHandler);
+		app.get("/employee/{e_id}", ec.getEmployeeRequestsHandler);
 
 		
 		
