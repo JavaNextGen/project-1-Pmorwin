@@ -11,7 +11,7 @@ public class FoodController {
 	FoodService fs = new FoodService();
 	
 	public Handler getFoodHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try{ 
 				List<Food> Food = fs.getFood();
 				Gson gson = new Gson();
@@ -30,7 +30,7 @@ public class FoodController {
 		}
 	};
 	public Handler getSingleFoodHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try{
 				List<Food> Food = fs.getSingleFood();
 				Gson gson = new Gson();
@@ -49,7 +49,7 @@ public class FoodController {
 		}
 	};
 	public Handler getEmployeeFoodHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				int e_id = Integer.parseInt(ctx.pathParam("e_id"));
 				List<Food> Food = fs.getEmployeeFood(e_id);
@@ -69,7 +69,7 @@ public class FoodController {
 		}
 	};
 	public Handler submitFoodHandler = (ctx) -> {
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				String body = ctx.body();
 				Gson gson = new Gson();
@@ -89,7 +89,7 @@ public class FoodController {
 		}
 	};
 	public Handler updateFoodStatusHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try{
 				String body = ctx.body();
 				Gson gson = new Gson();

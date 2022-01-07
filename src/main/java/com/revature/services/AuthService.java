@@ -1,23 +1,18 @@
 package com.revature.services;
 
-import com.revature.models.User;
-
+import java.util.List;
 import java.util.Optional;
 
-/**
- * The AuthService should handle login and registration for the ERS application.
- *
- * {@code login} and {@code register} are the minimum methods required; however, additional methods can be added.
- *
- * Examples:
- * <ul>
- *     <li>Retrieve Currently Logged-in User</li>
- *     <li>Change Password</li>
- *     <li>Logout</li>
- * </ul>
- */
-public class AuthService {
+import com.revature.models.Employee;
+import com.revature.models.User;
+import com.revature.repositories.EmployeeDAO;
 
+import io.javalin.core.util.JavalinException;
+
+
+public class AuthService {
+	EmployeeDAO ed = new EmployeeDAO();
+		
     /**
      * <ul>
      *     <li>Needs to check for existing users with username/email provided.</li>
@@ -26,34 +21,35 @@ public class AuthService {
      *     <li>Should throw exception if the passwords do not match.</li>
      *     <li>Must return user object if the user logs in successfully.</li>
      * </ul>
+     * @throws Exception 
      */
-    public User login(String username, String password) {
-        return null;
+    public boolean login(String username, String password) {   
+    	List<Employee> CheckUsername = ed.loginRequest(username, password);
+    	try{
+    		Employee Check = CheckUsername.get(0);
+    		String Username = Check.getEmployee_username();
+        	String Password = Check.getEmployee_password();
+            if (Username.equals(username) && Password.equals(password)) {
+            	return true;
+            	
+            }
+            else {
+            	return false;
+            }
+    	}
+    	catch(IndexOutOfBoundsException e) {
+    		System.out.println("That Username or Password didn't match our system");
+    		return false;
+    	}
+    	
     }
-
-    /**
-     * <ul>
-     *     <li>Should ensure that the username/email provided is unique.</li>
-     *     <li>Must throw exception if the username/email is not unique.</li>
-     *     <li>Should persist the user object upon successful registration.</li>
-     *     <li>Must throw exception if registration is unsuccessful.</li>
-     *     <li>Must return user object if the user registers successfully.</li>
-     *     <li>Must throw exception if provided user has a non-zero ID</li>
-     * </ul>
-     *
-     * Note: userToBeRegistered will have an id=0, additional fields may be null.
-     * After registration, the id will be a positive integer.
-     */
-    public User register(User userToBeRegistered) {
-        return null;
-    }
-
-    /**
-     * This is an example method signature for retrieving the currently logged-in user.
-     * It leverages the Optional type which is a useful interface to handle the
-     * possibility of a user being unavailable.
-     */
-    public Optional<User> exampleRetrieveCurrentUser() {
+    public Optional<Employee> exampleRetrieveCurrentEmployee() {
         return Optional.empty();
     }
+
+
+	public Object register(User eMPLOYEE_TO_REGISTER) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

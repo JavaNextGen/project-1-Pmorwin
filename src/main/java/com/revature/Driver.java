@@ -3,11 +3,14 @@ package com.revature;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import com.revature.controllers.AuthController;
 import com.revature.controllers.EmployeeController;
 import com.revature.controllers.FoodController;
 import com.revature.controllers.LodgingController;
 import com.revature.controllers.MiscellaneousController;
 import com.revature.controllers.TravelController;
+import com.revature.services.AuthService;
 import com.revature.util.ConnectionFactory;
 
 import io.javalin.Javalin;
@@ -16,11 +19,12 @@ public class Driver {
 
 	public static void main(String[] args) {
 		EmployeeController ec = new EmployeeController();
+		AuthController ac = new AuthController();
 		LodgingController lc = new LodgingController();
 		TravelController tc = new TravelController();
 		FoodController fc = new FoodController();
 		MiscellaneousController mc = new MiscellaneousController();
-		//Testing Database Connectivity - just testing whether our connection (from ConnectionFactory) is sucessful
+		AuthService as = new AuthService();
 		
 		try(Connection conn = ConnectionFactory.getConnection()){
 			System.out.println("Connection Successful! :)");
@@ -46,6 +50,23 @@ public class Driver {
 //		else {		
 //		m_menu.displayMenu();
 //		}
+//		String username = "pmorwin";
+//		String password = "password";
+//		
+//		boolean TestAuthentication = as.login(username, password);
+//		
+//		if(TestAuthentication) {
+//			System.out.println("Whoo!");
+//		}
+//		else {
+//			System.out.println("Oh No!");
+//		}
+		
+		
+		
+		
+		
+		
 		
 		Javalin app = Javalin.create(
 				config -> {
@@ -88,8 +109,14 @@ public class Driver {
 		app.post("/miscellaneous", mc.submitMiscellaneousHandler);
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(Create a new employee)");
 		app.post("/employee", ec.submitEmployeeHandler);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(Login Request)");
+		app.post("/login", ac.loginHandler);
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	
+		
+		
+		
+		
 		
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(Put Requests)");
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~(Update Status of Reimbursement Requests)");

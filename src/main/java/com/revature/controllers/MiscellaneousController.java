@@ -12,7 +12,7 @@ public class MiscellaneousController {
 	
 
 	public Handler getMiscellaneousHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				List<Miscellaneous> Miscellaneous = ms.getMiscellaneous();
 				Gson gson = new Gson();
@@ -31,7 +31,7 @@ public class MiscellaneousController {
 		}	
 	};
 	public Handler getSingleMiscellaneousHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				List<Miscellaneous> Miscellaneous = ms.getSingleMiscellaneous();
 				Gson gson = new Gson();
@@ -50,7 +50,7 @@ public class MiscellaneousController {
 		}	
 	};
 	public Handler getEmployeeMiscellaneousHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				int e_id = Integer.parseInt(ctx.pathParam("e_id"));
 				List<Miscellaneous> Miscellaneous = ms.getEmployeeMiscellaneous(e_id);
@@ -70,7 +70,7 @@ public class MiscellaneousController {
 		}	
 	};
 	public Handler submitMiscellaneousHandler = (ctx) -> {
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try{
 				String body = ctx.body();
 				Gson gson = new Gson();
@@ -90,7 +90,7 @@ public class MiscellaneousController {
 		}		
 	};
 	public Handler updateMiscellaneousStatusHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try{
 				String body = ctx.body();
 				Gson gson = new Gson();

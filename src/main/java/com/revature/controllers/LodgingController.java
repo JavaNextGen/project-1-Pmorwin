@@ -10,7 +10,7 @@ public class LodgingController {
 	LodgingService ls = new LodgingService();
 
 	public Handler getLodgingHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				List<Lodging> Lodging = ls.getLodging();
 				Gson gson = new Gson();
@@ -29,7 +29,7 @@ public class LodgingController {
 		}	
 	};
 	public Handler getSingleLodgingHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try { //checks if the session exists
 				List<Lodging> Lodging = ls.getSingleLodging();
 				Gson gson = new Gson();
@@ -48,7 +48,7 @@ public class LodgingController {
 		}	
 	};
 	public Handler getEmployeeLodgingHandler = ctx -> {
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try{ 
 				int e_id = Integer.parseInt(ctx.pathParam("e_id"));
 				List<Lodging> Lodging = ls.getEmployeeLodging(e_id);
@@ -68,7 +68,7 @@ public class LodgingController {
 		}	
 	};
 	public Handler submitLodgingHandler = (ctx) -> {
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				String body = ctx.body();
 				Gson gson = new Gson();
@@ -88,7 +88,7 @@ public class LodgingController {
 		}	
 	};
 	public Handler updateLodgingStatusHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				String body = ctx.body();
 				Gson gson = new Gson();

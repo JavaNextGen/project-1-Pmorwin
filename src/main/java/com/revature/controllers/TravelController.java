@@ -12,7 +12,7 @@ public class TravelController {
 	
 
 	public Handler getTravelHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				List<Travel> Travel = ts.getTravel();
 				Gson gson = new Gson();
@@ -31,7 +31,7 @@ public class TravelController {
 		}	
 	};
 	public Handler getSingleTravelHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				List<Travel> Travel = ts.getSingleTravel();
 				Gson gson = new Gson();
@@ -50,7 +50,7 @@ public class TravelController {
 		}	
 	};
 	public Handler getEmployeeTravelHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				int e_id = Integer.parseInt(ctx.pathParam("e_id"));
 				List<Travel> Travel = ts.getEmployeeTravel(e_id);
@@ -70,7 +70,7 @@ public class TravelController {
 		}	
 	};
 	public Handler submitTravelHandler = (ctx) -> {
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				String body = ctx.body();
 				Gson gson = new Gson();
@@ -90,7 +90,7 @@ public class TravelController {
 		}	
 	};
 	public Handler updateTravelStatusHandler = ctx ->{
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				String body = ctx.body();
 				Gson gson = new Gson();

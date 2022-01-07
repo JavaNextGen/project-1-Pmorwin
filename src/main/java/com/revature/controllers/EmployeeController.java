@@ -22,7 +22,7 @@ public class EmployeeController {
 	TravelService ts = new TravelService();
 	
 	public Handler getEmployeeRequestsHandler = (ctx) -> {
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try { 
 				int e_id = Integer.parseInt(ctx.pathParam("e_id"));		
 				//Lodging
@@ -56,7 +56,7 @@ public class EmployeeController {
 		}	
 	};
 	public Handler submitEmployeeHandler = (ctx) -> {
-		if(ctx.req.getSession(false) != null) {
+		if(ctx.req.getSession(true) != null) {
 			try {
 				String body = ctx.body();
 				Gson gson = new Gson();
