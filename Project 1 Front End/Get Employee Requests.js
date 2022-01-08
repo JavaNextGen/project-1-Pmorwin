@@ -2,8 +2,8 @@ const url = "http://localhost:3000/";
 
 
 console.log("======================================================================(HTML Navigation Listeners)")
+document.getElementById("returnEmployeeButton").addEventListener("click", employeeMenuPageRedirect);
 console.log("=================================================================================================")
-
 
 
 console.log("=============================================(Get Reimbursement Requests By Employee ID Listener)")
@@ -11,6 +11,14 @@ document.getElementById("getEmployeeRequestsButton").addEventListener("click", g
 console.log("=================================================================================================")
 
 
+
+
+
+console.log("================================================================================(HTML Navigation)")
+async function employeeMenuPageRedirect() {
+    window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/Employee%20Menu.html";
+  }   
+console.log("=================================================================================================")
 
 console.log("=======================================================(Get Reimbursement Requests By Employee ID)")
 async function getEmployeeRequests(){

@@ -13,20 +13,19 @@ public class AuthController {
 		String body = ctx.body();
 		Gson gson = new Gson();
 		Employee Employee = gson.fromJson(body, Employee.class);
-		System.out.println(Employee.getEmployee_username());
-		System.out.println(Employee.getEmployee_password());
-		if(as.login(Employee.getEmployee_username(),Employee.getEmployee_password())) {
-			
+		if(as.login(Employee.getEmployee_username(),Employee.getEmployee_password()) == 2) {
 			ctx.req.getSession();
 			ctx.status(202);
+			ctx.result("Login Successful!" );
+		}
+		else if(as.login(Employee.getEmployee_username(),Employee.getEmployee_password()) == 1) {		
+			ctx.req.getSession();
+			ctx.status(201);
 			ctx.result("Login Successful!" );
 		}
 		else {
 			ctx.status(401);
 			ctx.result("Login Failed");
 		}
-		
-		
 	};
-
 }

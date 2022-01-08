@@ -1,6 +1,7 @@
 const url = "http://localhost:3000/";
 
 console.log("======================================================================(HTML Navigation Listeners)")
+
 console.log("=================================================================================================")
 
 
@@ -8,6 +9,19 @@ console.log("===================================================================
 document.getElementById("loginButton").addEventListener("click", loginRequest);
 console.log("=================================================================================================")
 
+
+
+
+
+
+console.log("===============================================================================(HTML Navigation )")
+async function adminMenuPageRedirect() {
+    window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/Admin%20Menu.html";
+  }      
+async function employeeMenuPageRedirect() {
+    window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/Employee%20Menu.html";
+  }      
+console.log("=================================================================================================")
 
 
 console.log("==================================================================================(Login Request)")
@@ -18,16 +32,17 @@ async function loginRequest(){
         employee_username: usern,
         employee_password: userp
     }
-    console.log(user);//here is working
-    console.log(JSON.stringify(user));
     let response = await fetch (url + "login", {
         method: "POST",
         body: JSON.stringify(user),
         credentials: "include"
     })
-    console.log(response.status);
-    if(response.status=== 202){
-        document.getElementById("loginRow").innerText="Welcome";
+    console.log(response.status)
+    if(response.status === 202){
+        adminMenuPageRedirect();
+    }
+    else if(response.status  === 201){
+        employeeMenuPageRedirect();
     }
     else{
         document.getElementById("loginRow").innerText="Login Failed. Please Refreash and Try again";

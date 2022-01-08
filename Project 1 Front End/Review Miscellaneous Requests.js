@@ -1,6 +1,7 @@
 const url = "http://localhost:3000/";
 
 console.log("======================================================================(HTML Navigation Listeners)")
+document.getElementById("returnRequestReviewButton").addEventListener("click", requestReviewMenuPageRedirect);
 console.log("=================================================================================================")
 
 
@@ -16,6 +17,14 @@ document.getElementById("denyMiscellaneousButton").addEventListener("click", den
 console.log("=================================================================================================")
 
 
+
+
+
+console.log("===============================================================================(HTML Navigation )")
+async function requestReviewMenuPageRedirect() {
+    window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/Approve%20or%20Deny%20Menu.html";
+  }   
+console.log("=================================================================================================")
 
 
 

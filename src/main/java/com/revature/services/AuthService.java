@@ -23,23 +23,26 @@ public class AuthService {
      * </ul>
      * @throws Exception 
      */
-    public boolean login(String username, String password) {   
+    public int login(String username, String password) {   
     	List<Employee> CheckUsername = ed.loginRequest(username, password);
     	try{
     		Employee Check = CheckUsername.get(0);
     		String Username = Check.getEmployee_username();
         	String Password = Check.getEmployee_password();
-            if (Username.equals(username) && Password.equals(password)) {
-            	return true;
-            	
+        	int Role = Check.getRole_id();
+            if (Username.equals(username) && Password.equals(password) && Role == 1) {
+            	return 1;      	
+            }
+            else if (Username.equals(username) && Password.equals(password) && Role == 2) {
+            	return 2;
             }
             else {
-            	return false;
+            	return 0;
             }
     	}
     	catch(IndexOutOfBoundsException e) {
     		System.out.println("That Username or Password didn't match our system");
-    		return false;
+    		return 0;
     	}
     	
     }
