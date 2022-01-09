@@ -27,7 +27,7 @@ async function submitRequest(){
     let food_cost = document.getElementById("food_cost").value;
     let food_info = document.getElementById("food_info").value;
     let user = {
-        employee_id: employee_id,
+        e_id: employee_id,
         food_cost: food_cost,
         food_info: food_info
     }

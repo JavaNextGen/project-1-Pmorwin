@@ -10,14 +10,17 @@ import com.revature.controllers.FoodController;
 import com.revature.controllers.LodgingController;
 import com.revature.controllers.MiscellaneousController;
 import com.revature.controllers.TravelController;
+import com.revature.models.Menu_Employee;
+import com.revature.models.Menu_Manager;
 import com.revature.services.AuthService;
 import com.revature.util.ConnectionFactory;
 
 import io.javalin.Javalin;
 
+@SuppressWarnings("unused")
 public class Driver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		EmployeeController ec = new EmployeeController();
 		AuthController ac = new AuthController();
 		LodgingController lc = new LodgingController();
@@ -35,7 +38,7 @@ public class Driver {
 		}
 		
 
-//		//Instantiate a employee menu object
+		//Instantiate a employee menu object
 //		Menu_Employee e_menu = new Menu_Employee();
 //		//Instantiate a manager upgrade menu object
 //		Menu_Manager m_menu = new Menu_Manager();	
@@ -50,17 +53,11 @@ public class Driver {
 //		else {		
 //		m_menu.displayMenu();
 //		}
-//		String username = "pmorwin";
-//		String password = "password";
-//		
-//		boolean TestAuthentication = as.login(username, password);
-//		
-//		if(TestAuthentication) {
-//			System.out.println("Whoo!");
-//		}
-//		else {
-//			System.out.println("Oh No!");
-//		}
+
+		
+		
+		
+	
 		
 		
 		
@@ -88,16 +85,10 @@ public class Driver {
 		app.get("/miscellaneous_status", mc.getSingleMiscellaneousHandler);
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~(Get Reimbursement Requests by Employee ID)");
 		app.get("/employee/{e_id}", ec.getEmployeeRequestsHandler);
-
-		
-		
 		app.get("/lodging/{e_id}", lc.getEmployeeLodgingHandler);
 		app.get("/travel/{e_id}", tc.getEmployeeTravelHandler);
 		app.get("/food/{e_id}", fc.getEmployeeFoodHandler);
 		app.get("/miscellaneous/{e_id}", mc.getEmployeeMiscellaneousHandler);
-	
-		
-	
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		
 		

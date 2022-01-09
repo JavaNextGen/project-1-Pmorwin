@@ -57,7 +57,6 @@ public class EmployeeDAO {
 		}
 		catch(SQLException e) {
 			System.out.println("There was an error while attempting to input Employee information");
-			e.printStackTrace();
 			return 0;
 		}
 	}

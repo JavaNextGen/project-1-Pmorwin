@@ -27,7 +27,7 @@ async function submitRequest(){
     let travel_cost = document.getElementById("travel_cost").value;
     let travel_info = document.getElementById("travel_info").value;
     let user = {
-        employee_id: employee_id,
+        e_id: employee_id,
         travel_cost: travel_cost,
         travel_info: travel_info
     }

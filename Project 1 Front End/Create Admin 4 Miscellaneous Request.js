@@ -27,7 +27,7 @@ async function submitRequest(){
     let misc_cost = document.getElementById("misc_cost").value;
     let misc_info = document.getElementById("misc_info").value;
     let user = {
-        employee_id: employee_id,
+        e_id: employee_id,
         misc_cost: misc_cost,
         misc_info: misc_info
     }

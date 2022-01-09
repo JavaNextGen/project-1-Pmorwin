@@ -42,7 +42,7 @@ async function submitEmployee(){
   console.log(response.status)
   if(response.status === 201){
       document.getElementById("loginRow").innerText="Sucess!";
-      setTimeout(() => {  requestMenuPageRedirect(); }, 2000);
+      setTimeout(() => {  adminMenuPageRedirect(); }, 2000);
   }
   else{
       document.getElementById("loginRow").innerText="Submission Failed. Please Refreash and Try again";
