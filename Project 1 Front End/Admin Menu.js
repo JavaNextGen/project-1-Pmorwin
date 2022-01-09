@@ -26,7 +26,7 @@ async function submitEmployeePageRedirect() {
     window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/Create%20Employee.html";
 }
 async function submitRequestPageRedirect() {
-    window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/Admin%20Create%20Reimbursement%20Request.html";
+    window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/Create%20Admin%20Request%20Menu.html";
 }    
 async function logoutPageRedirect() {
     window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/Login.html";
