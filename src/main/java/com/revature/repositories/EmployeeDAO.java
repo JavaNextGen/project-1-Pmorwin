@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import com.revature.models.Employee;
 import com.revature.util.ConnectionFactory;
 
@@ -36,11 +38,10 @@ public class EmployeeDAO {
 		}
 		catch(SQLException e){
 			System.out.println("There was an error in selecting Employees");
-			e.printStackTrace();
 		}
 		return null; 
 	}    	
-	public int submitEmployee(Employee newEmployee) {
+	public static int submitEmployee(Employee newEmployee) {
 		try(Connection conn = ConnectionFactory.getConnection()){
 			String employee = "INSERT INTO employee (employee_id, company_email, f_name, l_name, employee_username, employee_password, role_id) " //creating a line break for readability
 						+ "VALUES (DEFAULT,?,?,?,?,?,?); "; 
@@ -83,6 +84,32 @@ public class EmployeeDAO {
 				employeelist.add(e);
 			}
 			return employeelist;
+		}
+		catch(SQLException e){
+			System.out.println("There was an error while trying to login");
+		}	
+		return null;		
+	}
+	public Optional<Employee> getByUsername(String employee_username) {
+		try(Connection conn = ConnectionFactory.getConnection()){ 
+			ResultSet rs = null;
+			String sql = "SELECT * FROM employees WHERE employee_username = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, employee_username);
+			rs = ps.executeQuery();
+			List<Employee> employeeList = new ArrayList<>();
+			while(rs.next()) {
+				Employee e = new Employee(
+						rs.getInt("employee_id"),
+						rs.getString("employee_username"),
+						rs.getString("employee_password"),
+						rs.getInt("role_id")
+						);		
+				employeeList.add(e);
+			}
+			Employee newEmployee = new Employee();
+			newEmployee = employeeList.get(0);
+			return Optional.ofNullable(newEmployee);
 		}
 		catch(SQLException e){
 			System.out.println("There was an error while trying to login");

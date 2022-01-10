@@ -1,6 +1,7 @@
 package com.revature.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.revature.models.Employee;
 import com.revature.repositories.EmployeeDAO;
@@ -21,6 +22,15 @@ public class EmployeeService {
 	public void submitEmployee(Employee newEmployee) throws Exception {
 		int result = eDAO.submitEmployee(newEmployee);
 		if(result == 0) {
+			throw new Exception();
+		}
+	}
+	public Object getByUsername(String employee_username) throws Exception {
+		Optional<Employee> result = eDAO.getByUsername(employee_username);
+		if(((Employee) result.get()).getE_id() != 0) {
+			return ((Employee) result.get()).getEmployee_username();
+		}
+		else {
 			throw new Exception();
 		}
 	}	

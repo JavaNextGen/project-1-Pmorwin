@@ -51,7 +51,7 @@ public class AuthService {
     }
 
 
-	public Object register(User eMPLOYEE_TO_REGISTER) {
+	public Object register(Employee employee) {
 		// TODO Auto-generated method stub
 		return null;
 	}

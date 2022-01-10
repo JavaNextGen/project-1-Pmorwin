@@ -21,15 +21,25 @@ public enum Role {
 
     EMPLOYEE {
         @Override
-        public String toString() {
-            return "Employee";
+        public int Employee() {
+            return 1;
         }
     },
     FINANCE_MANAGER {
         @Override
-        public String toString() {
-            return "Finance Manager";
+        public int Finance_Manager() {
+            return 2;
         }
-    }
+    };
+
+	public int Employee() {
+		// TODO Auto-generated method stub
+		return 1;
+	}
+
+	public int Finance_Manager() {
+		// TODO Auto-generated method stub
+		return 2;
+	}
 
 }

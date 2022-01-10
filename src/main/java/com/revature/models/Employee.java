@@ -48,6 +48,14 @@ public class Employee {
 		this.role_id = role_id;
 	}
 
+	public Employee(int e_id, String employee_username, String employee_password, int role_id) {
+		super();
+		this.e_id = e_id;
+		this.employee_username = employee_username;
+		this.employee_password = employee_password;
+		this.role_id = role_id;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [e_id=" + e_id + ", company_email=" + company_email + ", f_name=" + f_name + ", l_name="
