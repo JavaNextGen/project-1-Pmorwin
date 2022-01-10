@@ -51,7 +51,8 @@ public class MiscellaneousDAO {
 					rs.getInt("employee_id"),
 					rs.getInt("misc_id"),
 					rs.getString("misc_cost"),
-					rs.getString("misc_info")				
+					rs.getString("misc_info"),
+					rs.getInt("status")				
 					);			
 				miscList.add(m);
 			}
@@ -76,7 +77,8 @@ public class MiscellaneousDAO {
 					rs.getInt("employee_id"),
 					rs.getInt("misc_id"),
 					rs.getString("misc_cost"),
-					rs.getString("misc_info")				
+					rs.getString("misc_info"),
+					rs.getInt("status")				
 					);
 				miscList.add(m);
 			}

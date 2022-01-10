@@ -49,7 +49,8 @@ public class FoodDAO {
 					rs.getInt("employee_id"),
 					rs.getInt("food_id"),
 					rs.getString("food_cost"),
-					rs.getString("food_info")							
+					rs.getString("food_info"),
+					rs.getInt("status")											
 					);	
 				foodList.add(f);
 			}
@@ -74,7 +75,8 @@ public class FoodDAO {
 						rs.getInt("employee_id"),
 						rs.getInt("food_id"),
 						rs.getString("food_cost"),
-						rs.getString("food_info")							
+						rs.getString("food_info"),
+						rs.getInt("status")				
 						);		
 				foodList.add(f);
 			}

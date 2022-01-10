@@ -49,7 +49,8 @@ public class TravelDAO {
 					rs.getInt("employee_id"),
 					rs.getInt("travel_id"),
 					rs.getString("travel_cost"),
-					rs.getString("travel_info")							
+					rs.getString("travel_info"),
+					rs.getInt("status")				
 					);
 				travelList.add(t);
 			}
@@ -74,7 +75,8 @@ public class TravelDAO {
 					rs.getInt("employee_id"),
 					rs.getInt("travel_id"),
 					rs.getString("travel_cost"),
-					rs.getString("travel_info")							
+					rs.getString("travel_info"),
+					rs.getInt("status")				
 					);
 				travelList.add(t);
 			}
