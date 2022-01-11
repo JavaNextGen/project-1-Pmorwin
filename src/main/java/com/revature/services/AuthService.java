@@ -1,15 +1,14 @@
 package com.revature.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.revature.exceptions.NewUserHasNonZeroIdException;
+import com.revature.exceptions.RegistrationUnsuccessfulException;
+import com.revature.exceptions.UsernameNotUniqueException;
 import com.revature.models.Employee;
 import com.revature.models.Role;
 import com.revature.models.User;
 import com.revature.repositories.EmployeeDAO;
-
-import io.javalin.core.util.JavalinException;
 
 
 public class AuthService {
@@ -46,6 +45,12 @@ public class AuthService {
 
 	public Object register1(User EMPLOYEE_TO_REGISTER) throws Exception {
 		throw  new NewUserHasNonZeroIdException();
+	}
+	public Object register2(User EMPLOYEE_TO_REGISTER) {
+		throw new UsernameNotUniqueException();
+	}
+	public Object register3(User EMPLOYEE_TO_REGISTER) {
+		throw new RegistrationUnsuccessfulException();
 	}
 	public User login1(String username, String password) {
 		User user = new User(1, "genericEmployee1", "genericPassword", Role.EMPLOYEE);

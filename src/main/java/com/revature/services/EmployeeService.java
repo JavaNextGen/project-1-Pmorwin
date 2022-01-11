@@ -25,7 +25,7 @@ public class EmployeeService {
 			throw new Exception();
 		}
 	}
-	public Optional getByUsername(String employee_username) throws Exception {
+	public Optional<Employee> getByUsername(String employee_username) throws Exception {
 		Employee GENERIC_EMPLOYEE_1 = new Employee(1, "genericUsername", "genericPassword", 1);
 		return Optional.of(GENERIC_EMPLOYEE_1);
 	}	

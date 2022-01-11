@@ -29,4 +29,3 @@ public class ConnectionFactoryTest {
 
 
 
-//^^^^^^^^^^^ASK BEN ABOUT MAKING THAT THROW^^^^^^^^^^^^^^^^
