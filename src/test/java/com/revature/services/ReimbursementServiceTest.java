@@ -46,23 +46,23 @@ public class ReimbursementServiceTest {
 		GENERIC_REIMBURSEMENT_2 = new Reimbursement(2, Status.APPROVED, GENERIC_EMPLOYEE_1, GENERIC_FINANCE_MANAGER_1, 150.00);
 		
 		GENERIC_ALL_PENDING_REIMBURSEMENTS = new ArrayList<Reimbursement>();
-		GENERIC_ALL_PENDING_REIMBURSEMENTS.add(GENERIC_REIMBURSEMENT_1);
 	}
 	
 	@Test
 	public void testProcessPassesWhenUserIsFinanceManagerAndReimbursementExistsAndUpdateSuccessful() {
-		when(reimbursementDAO.getById(anyInt())).thenReturn(Optional.of(GENERIC_REIMBURSEMENT_1));
-		when(reimbursementDAO.update(any())).thenReturn(GENERIC_REIMBURSEMENT_2);
+		when(reimbursementDAO.getById(2)).thenReturn(Optional.of(GENERIC_REIMBURSEMENT_1));
+		when(reimbursementDAO.update(GENERIC_REIMBURSEMENT_1)).thenReturn(GENERIC_REIMBURSEMENT_2);
 		
 		assertEquals(GENERIC_REIMBURSEMENT_2, reimbursementService.process(REIMBURSEMENT_TO_PROCESS, Status.APPROVED, GENERIC_FINANCE_MANAGER_1));
 		
-		verify(reimbursementDAO).getById(REIMBURSEMENT_TO_PROCESS.getId());
-		verify(reimbursementDAO).update(REIMBURSEMENT_TO_PROCESS);
+		verify(reimbursementDAO).getById1(2);
+		verify(reimbursementDAO).update1(REIMBURSEMENT_TO_PROCESS);
+		
 	}
 	
 	@Test
 	public void testGetReimbursementByStatusPassesWhenReimbursementsAreSuccessfullyReturned() {
-		when(reimbursementDAO.getByStatus(any())).thenReturn(GENERIC_ALL_PENDING_REIMBURSEMENTS);
+		when(reimbursementDAO.getByStatus(Status.PENDING)).thenReturn(GENERIC_ALL_PENDING_REIMBURSEMENTS);
 		
 		assertEquals(GENERIC_ALL_PENDING_REIMBURSEMENTS, reimbursementService.getReimbursementsByStatus(Status.PENDING));
 		

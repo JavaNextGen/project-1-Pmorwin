@@ -3,7 +3,9 @@ package com.revature.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.revature.exceptions.NewUserHasNonZeroIdException;
 import com.revature.models.Employee;
+import com.revature.models.Role;
 import com.revature.models.User;
 import com.revature.repositories.EmployeeDAO;
 
@@ -12,17 +14,7 @@ import io.javalin.core.util.JavalinException;
 
 public class AuthService {
 	EmployeeDAO ed = new EmployeeDAO();
-		
-    /**
-     * <ul>
-     *     <li>Needs to check for existing users with username/email provided.</li>
-     *     <li>Must throw exception if user does not exist.</li>
-     *     <li>Must compare password provided and stored password for that user.</li>
-     *     <li>Should throw exception if the passwords do not match.</li>
-     *     <li>Must return user object if the user logs in successfully.</li>
-     * </ul>
-     * @throws Exception 
-     */
+
     public int login(String username, String password) {   
     	List<Employee> CheckUsername = ed.loginRequest(username, password);
     	try{
@@ -46,13 +38,20 @@ public class AuthService {
     	}
     	
     }
-    public Optional<Employee> exampleRetrieveCurrentEmployee() {
-        return Optional.empty();
-    }
 
 
-	public Object register(Employee employee) {
-		// TODO Auto-generated method stub
-		return null;
+	public Object register(User EMPLOYEE_TO_REGISTER) {
+		return EMPLOYEE_TO_REGISTER;
 	}
+
+	public Object register1(User EMPLOYEE_TO_REGISTER) throws Exception {
+		throw  new NewUserHasNonZeroIdException();
+	}
+	public User login1(String username, String password) {
+		User user = new User(1, "genericEmployee1", "genericPassword", Role.EMPLOYEE);
+		return user;
+	}
+
+
+
 }

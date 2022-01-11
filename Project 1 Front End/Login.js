@@ -20,7 +20,10 @@ async function adminMenuPageRedirect() {
   }      
 async function employeeMenuPageRedirect() {
     window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/Employee%20Menu.html";
-  }      
+  }    
+async function refreshPage() {
+   window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/Login.html";
+  }     
 console.log("=================================================================================================")
 
 
@@ -45,7 +48,7 @@ async function loginRequest(){
         employeeMenuPageRedirect();
     }
     else{
-        document.getElementById("loginRow").innerText="Login Failed. Please Refreash and Try again";
+        setTimeout(() => {  refreshPage(); }, 2000);
     }
 }
 console.log("=================================================================================================")

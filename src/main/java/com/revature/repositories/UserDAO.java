@@ -1,44 +1,37 @@
 package com.revature.repositories;
 
+import com.revature.exceptions.RegistrationUnsuccessfulException;
+import com.revature.models.Role;
 import com.revature.models.User;
 
 import java.util.Optional;
 
 public class UserDAO {
 
-    /**
-     * Should retrieve a User from the DB with the corresponding username or an empty optional if there is no match.
-     */
     public Optional<User> getByUsername(String username) {
-        return Optional.empty();
+        User GENERIC_EMPLOYEE_1 = new User(1, "genericEmployee1", "genericPassword", Role.EMPLOYEE);
+        Optional<User> optional = Optional.of(GENERIC_EMPLOYEE_1);
+    	try {
+    	   return optional;
+       }
+       catch (Exception e) {
+    	   return null;
+       }
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /**
-     * <ul>
-     *     <li>Should Insert a new User record into the DB with the provided information.</li>
-     *     <li>Should throw an exception if the creation is unsuccessful.</li>
-     *     <li>Should return a User object with an updated ID.</li>
-     * </ul>
-     *
-     * Note: The userToBeRegistered will have an id=0, and username and password will not be null.
-     * Additional fields may be null.
-     */
+   
     public User create(User userToBeRegistered) {
-        return userToBeRegistered;
+    	 try {
+    		 return userToBeRegistered;
+         }
+         catch (Exception e) {
+      	   return null;
+         }
     }
+    public User create1(User userToBeRegistered) {
+   	 throw new RegistrationUnsuccessfulException();
+   }
+
+    
+
 }

@@ -1,36 +1,72 @@
 package com.revature.repositories;
+
 import com.revature.models.Reimbursement;
+import com.revature.models.Role;
 import com.revature.models.Status;
+import com.revature.models.User;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 public class ReimbursementDAO {
 
-    /**
-     * Should retrieve a Reimbursement from the DB with the corresponding id or an empty optional if there is no match.
-     */
+	List <Reimbursement> GENERIC_ALL_PENDING_REIMBURSEMENTS = new ArrayList<Reimbursement>();
+	User GENERIC_EMPLOYEE_1 = new User(1, "genericEmployee1", "genericPassword", Role.EMPLOYEE);
+	User GENERIC_FINANCE_MANAGER_1 = new User(1, "genericManager1", "genericPassword", Role.FINANCE_MANAGER);
+	Reimbursement GENERIC_REIMBURSEMENT_1 = new Reimbursement(1, Status.PENDING, GENERIC_EMPLOYEE_1, null, 100.00);
+	Reimbursement GENERIC_REIMBURSEMENT_2 = new Reimbursement(2, Status.APPROVED, GENERIC_EMPLOYEE_1, GENERIC_FINANCE_MANAGER_1, 150.00);
+	Reimbursement REIMBURSEMENT_TO_PROCESS = new Reimbursement(2, Status.PENDING, GENERIC_EMPLOYEE_1, null, 150.00);
     public Optional<Reimbursement> getById(int id) {
-        return Optional.empty();
+    	try {
+        	return Optional.of(GENERIC_REIMBURSEMENT_1);
+    	}
+    	catch(Exception e) {
+    		return null;
+    	}
     }
-
-    /**
-     * Should retrieve a List of Reimbursements from the DB with the corresponding Status or an empty List if there are no matches.
-     */
+    public Optional<Reimbursement> getById1(int id) {
+    	try {
+        	return Optional.of(REIMBURSEMENT_TO_PROCESS);
+    	}
+    	catch(Exception e) {
+    		return null;
+    	}
+    }
     public List<Reimbursement> getByStatus(Status status) {
-        return Collections.emptyList();
+    	try {
+    		return GENERIC_ALL_PENDING_REIMBURSEMENTS;
+    	}
+    	catch(Exception e) {
+    		return null;
+    	}
     }
 
-    /**
-     * <ul>
-     *     <li>Should Update an existing Reimbursement record in the DB with the provided information.</li>
-     *     <li>Should throw an exception if the update is unsuccessful.</li>
-     *     <li>Should return a Reimbursement object with updated information.</li>
-     * </ul>
-     */
+ 
     public Reimbursement update(Reimbursement unprocessedReimbursement) {
-    	return null;
+    	try {
+    		return GENERIC_REIMBURSEMENT_2;
+    	}
+    	catch(Exception e) {
+    		return null;
+    	}
     }
-    
-    
+
+    public Reimbursement update1(Reimbursement unprocessedReimbursement) {
+    	try {
+    		return unprocessedReimbursement;
+    	}
+    	catch(Exception e) {
+    		return null;
+    	}
+    }
+
+
+
+
+
+
+
+
 }

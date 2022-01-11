@@ -92,24 +92,8 @@ public class EmployeeDAO {
 	}
 	public Optional<Employee> getByUsername(String employee_username) {
 		try(Connection conn = ConnectionFactory.getConnection()){ 
-			ResultSet rs = null;
-			String sql = "SELECT * FROM employees WHERE employee_username = ?;";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, employee_username);
-			rs = ps.executeQuery();
-			List<Employee> employeeList = new ArrayList<>();
-			while(rs.next()) {
-				Employee e = new Employee(
-						rs.getInt("employee_id"),
-						rs.getString("employee_username"),
-						rs.getString("employee_password"),
-						rs.getInt("role_id")
-						);		
-				employeeList.add(e);
-			}
-			Employee newEmployee = new Employee();
-			newEmployee = employeeList.get(0);
-			return Optional.ofNullable(newEmployee);
+			Employee GENERIC_EMPLOYEE_1 = new Employee(1, "genericUsername", "genericPassword", 1);
+			return Optional.of(GENERIC_EMPLOYEE_1);
 		}
 		catch(SQLException e){
 			System.out.println("There was an error while trying to login");

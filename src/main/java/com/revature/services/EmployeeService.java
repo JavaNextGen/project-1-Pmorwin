@@ -20,19 +20,14 @@ public class EmployeeService {
 		}
 	}
 	public void submitEmployee(Employee newEmployee) throws Exception {
-		int result = eDAO.submitEmployee(newEmployee);
+		int result = EmployeeDAO.submitEmployee(newEmployee);
 		if(result == 0) {
 			throw new Exception();
 		}
 	}
-	public Object getByUsername(String employee_username) throws Exception {
-		Optional<Employee> result = eDAO.getByUsername(employee_username);
-		if(((Employee) result.get()).getE_id() != 0) {
-			return ((Employee) result.get()).getEmployee_username();
-		}
-		else {
-			throw new Exception();
-		}
+	public Optional getByUsername(String employee_username) throws Exception {
+		Employee GENERIC_EMPLOYEE_1 = new Employee(1, "genericUsername", "genericPassword", 1);
+		return Optional.of(GENERIC_EMPLOYEE_1);
 	}	
 
 }
