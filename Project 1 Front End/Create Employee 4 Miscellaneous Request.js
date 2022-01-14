@@ -24,8 +24,8 @@ console.log("===================================================================
 console.log("===================================================================(Create Reimbursement Request)")
 async function submitRequest(){
     let employee_id = document.getElementById("employee_id").value;
-    let misc_cost = document.getElementById("misc_cost").value;
-    let misc_info = document.getElementById("misc_info").value;
+    let misc_cost = document.getElementById("miscellaneous_cost").value;
+    let misc_info = document.getElementById("miscellaneous_info").value;
     let user = {
         e_id: employee_id,
         misc_cost: misc_cost,

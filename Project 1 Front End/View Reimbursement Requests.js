@@ -2,6 +2,7 @@ const url = "http://localhost:3000/";
 
 console.log("======================================================================(HTML Navigation Listeners)")
 document.getElementById("adminMenuButton").addEventListener("click", adminMenuPageRedirect);
+document.getElementById("refreshButton").addEventListener("click", refreshPage);
 console.log("=================================================================================================")
 
 
@@ -23,6 +24,9 @@ console.log("===================================================================
 async function adminMenuPageRedirect() {
     window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/Admin%20Menu.html";
   }   
+  async function refreshPage() {
+    window.location.href = "file:///C:/Users/Desktop/Desktop/Work/VS%20Code/Project%201%20Front%20End/View%20Reimbursement%20Requests.html";
+  }    
 console.log("=================================================================================================")
 
 
